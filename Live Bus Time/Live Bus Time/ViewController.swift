@@ -14,6 +14,63 @@ class ViewController: UIViewController {
     //Map
     @IBOutlet weak var map: MKMapView!
     
+    // to get search bar at th top
+    @IBAction func search(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self as? UISearchBarDelegate
+        present(searchController, animated: true, completion: nil)
+    }
+    
+        //to get search bar working
+    func searchBarSearchButtonClicked(_searchBar: UISearchBar){
+        //Ignoring Users
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        //Activity Indicator
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        self.view.addSubview(activityIndicator)
+        
+        //Hide search bar
+        _searchBar.resignFirstResponder
+        dismiss(animated: true, completion: nil)
+        
+        //Create search bar request
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = _searchBar.text
+        
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        activeSearch.start{ (response, Error) in
+            if response == nil{
+                print("ERROR")
+            }
+            else
+            {
+                //Remove Annotations
+                let annotations = self.map.annotations
+                self.map.removeAnnotations(annotations)
+                
+                //Gettinng DATA
+                let  latitude = response?.boundingRegion.center.latitude
+                let  longitude = response?.boundingRegion.center.longitude
+                
+                //create annotations
+                let annotation = MKPointAnnotation()
+                annotation.title = _searchBar.text
+                //annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.map.addAnnotation(annotation)
+                
+                
+            }
+            
+        }
+        
+    }
+    
+    
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     
