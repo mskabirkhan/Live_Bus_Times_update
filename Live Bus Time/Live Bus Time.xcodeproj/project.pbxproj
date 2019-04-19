@@ -16,6 +16,9 @@
 		1B3A6B8121F926C400D3CABD /* Live_Bus_TimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A6B8021F926C400D3CABD /* Live_Bus_TimeUITests.swift */; };
 		1B3A6B9021F9285E00D3CABD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A6B8F21F9285E00D3CABD /* MapKit.framework */; };
 		1B3A6B9221F92BA100D3CABD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A6B9121F92BA100D3CABD /* CoreLocation.framework */; };
+		37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */; };
+		77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */; };
+		E614709E0959CC91189391B4 /* Pods_Live_Bus_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.debug.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.debug.xcconfig"; sourceTree = "<group>"; };
 		1B3A6B5D21F926C200D3CABD /* Live Bus Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Bus Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3A6B6021F926C200D3CABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B3A6B6221F926C200D3CABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 		1B3A6B8221F926C400D3CABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B3A6B8F21F9285E00D3CABD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1B3A6B9121F92BA100D3CABD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.release.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.release.xcconfig"; sourceTree = "<group>"; };
+		498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_TimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_TimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C242CB686F1F99885E4513 /* Pods-Live Bus TimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC031CD6C88F8B2F17C75C75 /* Pods-Live Bus TimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeTests.debug.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeTests/Pods-Live Bus TimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9EEC0B764353021DF54FB93 /* Pods-Live Bus TimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeTests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeTests/Pods-Live Bus TimeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 			files = (
 				1B3A6B9221F92BA100D3CABD /* CoreLocation.framework in Frameworks */,
 				1B3A6B9021F9285E00D3CABD /* MapKit.framework in Frameworks */,
+				E614709E0959CC91189391B4 /* Pods_Live_Bus_Time.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +103,7 @@
 				1B3A6B7F21F926C400D3CABD /* Live Bus TimeUITests */,
 				1B3A6B5E21F926C200D3CABD /* Products */,
 				1B3A6B8E21F9285D00D3CABD /* Frameworks */,
+				FC5C44FDDD0CF0DC3B855C25 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,8 +153,25 @@
 			children = (
 				1B3A6B9121F92BA100D3CABD /* CoreLocation.framework */,
 				1B3A6B8F21F9285E00D3CABD /* MapKit.framework */,
+				2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */,
+				5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */,
+				498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC5C44FDDD0CF0DC3B855C25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */,
+				46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */,
+				EC031CD6C88F8B2F17C75C75 /* Pods-Live Bus TimeTests.debug.xcconfig */,
+				F9EEC0B764353021DF54FB93 /* Pods-Live Bus TimeTests.release.xcconfig */,
+				B5C242CB686F1F99885E4513 /* Pods-Live Bus TimeUITests.debug.xcconfig */,
+				45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3A6B8521F926C400D3CABD /* Build configuration list for PBXNativeTarget "Live Bus Time" */;
 			buildPhases = (
+				FECC0A99E2E0FE24C0572E71 /* [CP] Check Pods Manifest.lock */,
 				1B3A6B5921F926C200D3CABD /* Sources */,
 				1B3A6B5A21F926C200D3CABD /* Frameworks */,
 				1B3A6B5B21F926C200D3CABD /* Resources */,
+				067C8571BBF637E609428304 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3A6B8821F926C400D3CABD /* Build configuration list for PBXNativeTarget "Live Bus TimeTests" */;
 			buildPhases = (
+				E2F13D5E08C9063FB41A236C /* [CP] Check Pods Manifest.lock */,
 				1B3A6B6D21F926C400D3CABD /* Sources */,
 				1B3A6B6E21F926C400D3CABD /* Frameworks */,
 				1B3A6B6F21F926C400D3CABD /* Resources */,
@@ -183,6 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3A6B8B21F926C400D3CABD /* Build configuration list for PBXNativeTarget "Live Bus TimeUITests" */;
 			buildPhases = (
+				4B6C50990141D4708BA37757 /* [CP] Check Pods Manifest.lock */,
 				1B3A6B7821F926C400D3CABD /* Sources */,
 				1B3A6B7921F926C400D3CABD /* Frameworks */,
 				1B3A6B7A21F926C400D3CABD /* Resources */,
@@ -266,6 +303,105 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		067C8571BBF637E609428304 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B6C50990141D4708BA37757 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Live Bus TimeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F13D5E08C9063FB41A236C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Live Bus TimeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FECC0A99E2E0FE24C0572E71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Live Bus Time-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B3A6B5921F926C200D3CABD /* Sources */ = {
@@ -446,6 +582,7 @@
 		};
 		1B3A6B8621F926C400D3CABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,6 +601,7 @@
 		};
 		1B3A6B8721F926C400D3CABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -482,6 +620,7 @@
 		};
 		1B3A6B8921F926C400D3CABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC031CD6C88F8B2F17C75C75 /* Pods-Live Bus TimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +641,7 @@
 		};
 		1B3A6B8A21F926C400D3CABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9EEC0B764353021DF54FB93 /* Pods-Live Bus TimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -522,6 +662,7 @@
 		};
 		1B3A6B8C21F926C400D3CABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C242CB686F1F99885E4513 /* Pods-Live Bus TimeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +682,7 @@
 		};
 		1B3A6B8D21F926C400D3CABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
