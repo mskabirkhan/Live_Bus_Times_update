@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B3A3CAA226A3EEB00A10F45 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */; };
+		1B3A3CAC226A4DB000A10F45 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CAB226A4DB000A10F45 /* RoundImageView.swift */; };
+		1B3A3CAE226A4E6800A10F45 /* RoundedShadawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */; };
+		1B3A3CB0226A512B00A10F45 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CAF226A512B00A10F45 /* RoundedShadowButton.swift */; };
 		1B3A6B6121F926C200D3CABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A6B6021F926C200D3CABD /* AppDelegate.swift */; };
 		1B3A6B6321F926C200D3CABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A6B6221F926C200D3CABD /* ViewController.swift */; };
 		1B3A6B6621F926C200D3CABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A6B6421F926C200D3CABD /* Main.storyboard */; };
@@ -40,6 +44,10 @@
 
 /* Begin PBXFileReference section */
 		188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.debug.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.debug.xcconfig"; sourceTree = "<group>"; };
+		1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1B3A3CAB226A4DB000A10F45 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadawView.swift; sourceTree = "<group>"; };
+		1B3A3CAF226A512B00A10F45 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		1B3A6B5D21F926C200D3CABD /* Live Bus Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Bus Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3A6B6021F926C200D3CABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B3A6B6221F926C200D3CABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B3A3CA6226A3E2700A10F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B3A3CA7226A3E4D00A10F45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */,
+				1B3A3CAB226A4DB000A10F45 /* RoundImageView.swift */,
+				1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */,
+				1B3A3CAF226A512B00A10F45 /* RoundedShadowButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B3A3CA8226A3E5B00A10F45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1B3A6B5421F926C200D3CABD = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +153,9 @@
 		1B3A6B5F21F926C200D3CABD /* Live Bus Time */ = {
 			isa = PBXGroup;
 			children = (
+				1B3A3CA8226A3E5B00A10F45 /* Controller */,
+				1B3A3CA7226A3E4D00A10F45 /* View */,
+				1B3A3CA6226A3E2700A10F45 /* Model */,
 				1B3A6B6021F926C200D3CABD /* AppDelegate.swift */,
 				1B3A6B6221F926C200D3CABD /* ViewController.swift */,
 				1B3A6B6421F926C200D3CABD /* Main.storyboard */,
@@ -170,7 +206,6 @@
 				B5C242CB686F1F99885E4513 /* Pods-Live Bus TimeUITests.debug.xcconfig */,
 				45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -409,7 +444,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3A6B6321F926C200D3CABD /* ViewController.swift in Sources */,
+				1B3A3CAC226A4DB000A10F45 /* RoundImageView.swift in Sources */,
 				1B3A6B6121F926C200D3CABD /* AppDelegate.swift in Sources */,
+				1B3A3CAE226A4E6800A10F45 /* RoundedShadawView.swift in Sources */,
+				1B3A3CAA226A3EEB00A10F45 /* GradientView.swift in Sources */,
+				1B3A3CB0226A512B00A10F45 /* RoundedShadowButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
