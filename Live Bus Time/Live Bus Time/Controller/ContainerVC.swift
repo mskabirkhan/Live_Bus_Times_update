@@ -201,7 +201,7 @@ extension ContainerVC : CenterVCDelegate {
         }
         else
         {
-            centerController.view.layer.shadowOpacity = 0.0
+            centerController.view.layer.shadowOpacity = 0.6
         }
     }
     

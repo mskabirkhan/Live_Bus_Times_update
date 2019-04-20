@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         containerVC = ContainerVC()
         window?.rootViewController = containerVC
         window?.makeKeyAndVisible()
+        
+        FirebaseApp.configure() //only line from firebase website
         // Override point for customization after application launch.
         return true
     }
