@@ -358,6 +358,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
                                             <state key="normal" title="Sign Up / Login"/>
+                                            <connections>
+                                                <action selector="authButtonWasPressed:" destination="8q5-4F-TUV" eventType="touchUpInside" id="caM-6w-Pw9"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver | Log in the system with to start sharing live location." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-Be-c5D">
                                             <rect key="frame" x="19" y="178.5" width="333" height="53.5"/>
@@ -436,6 +439,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9nv-zi-FoG"/>
                     </view>
+                    <connections>
+                        <outlet property="authButton" destination="40L-S6-j8u" id="tUX-Rd-2H6"/>
+                        <outlet property="emailField" destination="xOg-Em-C9g" id="G9p-x5-7kZ"/>
+                        <outlet property="passwordField" destination="32i-vp-iCh" id="fR8-Lu-18S"/>
+                        <outlet property="segmentedControl" destination="ESH-lq-xXm" id="EJI-bE-Cnq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nh-pc-GzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

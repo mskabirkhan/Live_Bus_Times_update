@@ -27,6 +27,7 @@
 		1B3A6B9021F9285E00D3CABD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A6B8F21F9285E00D3CABD /* MapKit.framework */; };
 		1B3A6B9221F92BA100D3CABD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A6B9121F92BA100D3CABD /* CoreLocation.framework */; };
 		1B460421226B99A900E0A2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B460420226B99A800E0A2E9 /* GoogleService-Info.plist */; };
+		1B460424226B9FE100E0A2E9 /* Dataservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460423226B9FE100E0A2E9 /* Dataservice.swift */; };
 		37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */; };
 		77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */; };
 		E614709E0959CC91189391B4 /* Pods_Live_Bus_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */; };
@@ -77,6 +78,7 @@
 		1B3A6B8F21F9285E00D3CABD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1B3A6B9121F92BA100D3CABD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1B460420226B99A800E0A2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B460423226B9FE100E0A2E9 /* Dataservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataservice.swift; sourceTree = "<group>"; };
 		2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.release.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		1B3A6B5F21F926C200D3CABD /* Live Bus Time */ = {
 			isa = PBXGroup;
 			children = (
+				1B460422226B9FBC00E0A2E9 /* Services */,
 				1B251D31226A9D6300F57566 /* Extension */,
 				1B251D2E226A78BA00F57566 /* Protocols */,
 				1B3A3CA8226A3E5B00A10F45 /* Controller */,
@@ -231,6 +234,14 @@
 				498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B460422226B9FBC00E0A2E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1B460423226B9FE100E0A2E9 /* Dataservice.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FC5C44FDDD0CF0DC3B855C25 /* Pods */ = {
@@ -487,6 +498,7 @@
 				1B251D30226A78F900F57566 /* CenterVCDelegate.swift in Sources */,
 				1B251D2D226A6C1100F57566 /* ContainerVC.swift in Sources */,
 				1B251D2B226A6B4000F57566 /* LeftSidePanelVC.swift in Sources */,
+				1B460424226B9FE100E0A2E9 /* Dataservice.swift in Sources */,
 				1B3A6B6321F926C200D3CABD /* HomeVC.swift in Sources */,
 				1B3A3CAC226A4DB000A10F45 /* RoundImageView.swift in Sources */,
 				1B3A6B6121F926C200D3CABD /* AppDelegate.swift in Sources */,
