@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  Live Bus Time
 //
 //  Created by Kabir on 23/01/2019.
@@ -10,11 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class HomeVC: UIViewController, MKMapViewDelegate {
     
     //Map
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
+    
+    var delegate: CenterVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,4 +27,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         actionBtn.animateButton(shouldLoad: true, withMessage: nil)
     }
     
+    @IBAction func menuBtnWasPressed(_ sender: Any) {
+        delegate?.toggleLeftPanel()
+    }
 }

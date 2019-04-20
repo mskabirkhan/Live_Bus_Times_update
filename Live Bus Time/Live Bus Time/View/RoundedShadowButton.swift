@@ -52,7 +52,9 @@ class RoundedShadowButton: UIButton {
                     self.addSubview(spinner)
                     spinner.startAnimating()
                     spinner.center = CGPoint(x: self.frame.width / 2 + 1, y: self.frame.width / 2 + 1)
-                    spinner.fadeTo(alphaValue: 1.0, withDuration: 0.2)
+                    
+                    //have a look, the line is below giving a error message
+                    //spinner.fadeTo(alphaValue: 1.0, withDuration: 0.2)
                 }
             })
             self.isUserInteractionEnabled = false
