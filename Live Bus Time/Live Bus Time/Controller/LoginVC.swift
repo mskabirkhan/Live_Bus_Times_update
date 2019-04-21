@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 class LoginVC: UIViewController, UITextFieldDelegate {
     
@@ -16,7 +18,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: RoundedCornerTextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var authButton: RoundedShadowButton!
-    
     
     
 
@@ -40,86 +41,89 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
         @IBAction func authButtonWasPressed(_ sender: Any) {
       
-        if emailField.text != nil && passwordField.text != nil
-        {
-            authButton.animateButton(shouldLoad: true, withMessage: nil)
-            self.view.endEditing(true)
-            
-            if let email = emailField.text, let password = passwordField.text
+            if emailField.text != nil && passwordField.text != nil
             {
-                Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                    
-                    if error == nil
-                    {
-                        if let user = user
-                        {
-                            if self.segmentedControl.selectedSegmentIndex == 0
-                            {
-                                let userData = ["provider": user.providerID] as [String: Any]
-                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
-                            }
-                            else
-                            {
-                                let userData = ["provider": user.providerID] as [String: Any]
-                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
-                            }
-                        }
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                    else
-                    {
-                        if let errorCode = AuthErrorCode(rawValue: error!._code)
-                        {
-                            switch errorCode
-                            {
-                            case .wrongPassword:
-                                self.showAlert(ERROR_MSG_WRONG_PASSWORD)
-                                
-                            default:
-                                self.showAlert(ERROR_MSG_UNEXPECTED_ERROR)
-                            }
-                        }
-                        
-                        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                            
-                            if error != nil
-                            {
-                                if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                authButton.animateButton(shouldLoad: true, withMessage: nil)
+                self.view.endEditing(true)
+                
+                if let email = emailField.text, let password = passwordField.text {
+                    Auth.auth().signIn(withEmail: email, password: password) { (authData, error) in
+                        if error == nil {
+                            if let user = authData?.user {
+                                if self.segmentedControl.selectedSegmentIndex == 0 {
+                                    let userData = ["provider": user.providerID] as [String: Any]
+                                    DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
+                                }
+                                else {
+                                    let userData = ["provider": user.providerID, "userIsDriver": true, "IsPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                    DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
                                     
-                                    switch errorCode
-                                    {
-                                    case .invalidEmail:
-                                        self.showAlert(ERROR_MSG_INVALID_EMAIL)
-                                        
-                                    default:
-                                        self.showAlert(ERROR_MSG_UNEXPECTED_ERROR)
-                                    }
                                 }
                             }
-                            else
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        else
+                        {
+                            if let errorCode = AuthErrorCode(rawValue: error!._code)
                             {
-                                if let user = user
+                                switch errorCode
                                 {
-                                    //KOD ONCEDEN ASAGIDAKİ GİBİYDİ. DENEME KODUDUR.
-                                    //if self.segmentedControl.selectedSegmentIndex == 0
-                                    if self.segmentedControl.selectedSegmentIndex == 0
-                                    {
-                                        let userData = ["provider": user.providerID] as [String: Any]
-                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
-                                    }
-                                    else
-                                    {
-                                        let userData = ["provider": user.providerID, USER_IS_DRIVER : true, ACCOUNT_PICKUP_MODE_ENABLED : false, DRIVER_IS_ON_TRIP : false] as [String: Any]
-                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
+                                case .wrongPassword:
+                                    print("Whoops! That was the wrong password!")
+                                    
+                                default:
+                                    print("An unexpected error has occured. Please try again!!.")
+                                }
+                            }
+                            
+                            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                                
+                                if error != nil
+                                {
+                                    if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                                        
+                                        switch errorCode
+                                        {
+                                        case .invalidEmail:
+                                            print ("This is an invalid email! Please try again.")
+                                            
+                                        case .emailAlreadyInUse:
+                                            print("This email is already in use. Please try again.")
+
+                                        default:
+                                            print("An unexpected error has occured. Please try again!!.")
+                                        }
                                     }
                                 }
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                        })
+                                else
+                                {
+                                    if let user = authData?.user {
+
+                                        if self.segmentedControl.selectedSegmentIndex == 0
+                                        {
+                                            let userData = ["provider": user.providerID] as [String: Any]
+                                            DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
+                                        }
+                                            else {
+                                                let userData = ["provider": user.providerID, "userIsDriver": true, "IsPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
+                                                
+                                            }
+                                    }
+                                    print("Successfully created a new user with firebase")
+                                    self.dismiss(animated: true, completion: nil)
+                                }
+                            })
+                            //
+                        }
                     }
-                })
+                }
             }
-        }
+    }
+    
+
 }
