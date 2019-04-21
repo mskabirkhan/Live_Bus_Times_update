@@ -24,8 +24,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow app to access you location!</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -44,6 +42,14 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>LBTU needs your location to operate!</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSLocationUsageDescription</key>
 	<string></string>
 </dict>
 </plist>

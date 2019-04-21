@@ -83,11 +83,11 @@ class LeftSidePanelVC: UIViewController {
         if pickUpModeSwitch.isOn {
             pickUpModeLbl.text = "Location Enabled"
             appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["LocationEnabled": true])
+            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsPickupModeEnabled": true])
         } else {
             pickUpModeLbl.text = "Location DISABLED"
             appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["LocationEnabled": false])
+            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["Location Enabled": false])
         }
     }
     
