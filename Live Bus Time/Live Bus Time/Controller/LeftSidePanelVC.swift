@@ -14,12 +14,12 @@ class LeftSidePanelVC: UIViewController {
     let currentUserId = Auth.auth().currentUser?.uid
     let appDelegate = AppDelegate.getAppDelegate()
 
-    @IBOutlet weak var userAccountTypeLbl: UILabel!
-    @IBOutlet weak var userEmailLbl: UILabel!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var loginOutBtn: UIButton!
+    @IBOutlet weak var userImageView: RoundImageView!
     @IBOutlet weak var pickUpModeSwitch: UISwitch!
     @IBOutlet weak var pickUpModeLbl: UILabel!
+    @IBOutlet weak var userEmailLbl: UILabel!
+    @IBOutlet weak var userAccountTypeLbl: UILabel!
+    @IBOutlet weak var loginOutBtn: UIButton!
     
     
     
@@ -30,10 +30,12 @@ class LeftSidePanelVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pickUpModeSwitch.isOn = false
-        pickUpModeSwitch.isHidden  = false
+        pickUpModeSwitch.isHidden  = true
         pickUpModeLbl.isHidden = true
         
+        
         observeDriversAndPassengers()
+    
         if Auth.auth().currentUser == nil {
             userEmailLbl.text = ""
             userAccountTypeLbl.text = ""
@@ -46,7 +48,6 @@ class LeftSidePanelVC: UIViewController {
             userImageView.isHidden = false
             loginOutBtn.setTitle("LogOut", for: .normal)
         }
-        
     }
     
     //check if its a driver or passenger
@@ -68,7 +69,7 @@ class LeftSidePanelVC: UIViewController {
                         self.userAccountTypeLbl.text = "DRIVER"
                         self.pickUpModeSwitch.isHidden = false
                         
-                        let switchStatus = snap.childSnapshot(forPath: "LocationEnabled").value as! Bool
+                        let switchStatus = snap.childSnapshot(forPath: "IsPickupModeEnabled").value as! Bool
                         self.pickUpModeSwitch.isOn = switchStatus
                         self.pickUpModeLbl.isHidden = false
                         
@@ -80,13 +81,13 @@ class LeftSidePanelVC: UIViewController {
     //error Fatal error: Unexpectedly found nil while unwrapping an Optional value
     @IBAction func switchIsOn(_ sender: Any) {
         if pickUpModeSwitch.isOn {
-            pickUpModeLbl.text = "Location ENABLED"
+            pickUpModeLbl.text = "Location Enabled"
             appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsPickupModeEnabled": true])
+            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["LocationEnabled": true])
         } else {
             pickUpModeLbl.text = "Location DISABLED"
             appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsLocationModeEnabled": false])
+            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["LocationEnabled": false])
         }
     }
     
@@ -95,8 +96,8 @@ class LeftSidePanelVC: UIViewController {
     @IBAction func LoginBtnWasPressed(_ sender: Any) {
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-            present(loginViewController!, animated: true, completion: nil)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+            present(loginVC!, animated: true, completion: nil)
         } else {
             do {
                 try Auth.auth().signOut()
