@@ -29,6 +29,7 @@
 		1B460421226B99A900E0A2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B460420226B99A800E0A2E9 /* GoogleService-Info.plist */; };
 		1B460424226B9FE100E0A2E9 /* Dataservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460423226B9FE100E0A2E9 /* Dataservice.swift */; };
 		1B46042A226E29E400E0A2E9 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460429226E29E400E0A2E9 /* UpdateService.swift */; };
+		1B46042C226E3B0B00E0A2E9 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46042B226E3B0B00E0A2E9 /* DriverAnnotation.swift */; };
 		37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */; };
 		77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */; };
 		E614709E0959CC91189391B4 /* Pods_Live_Bus_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */; };
@@ -81,6 +82,7 @@
 		1B460420226B99A800E0A2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B460423226B9FE100E0A2E9 /* Dataservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataservice.swift; sourceTree = "<group>"; };
 		1B460429226E29E400E0A2E9 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
+		1B46042B226E3B0B00E0A2E9 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 		2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.release.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */,
 				1B3A3CAF226A512B00A10F45 /* RoundedShadowButton.swift */,
 				1B251D36226B8DE000F57566 /* RoundedCornerTextField.swift */,
+				1B46042B226E3B0B00E0A2E9 /* DriverAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				1B251D33226A9E5300F57566 /* UIViewExtension.swift in Sources */,
 				1B251D37226B8DE000F57566 /* RoundedCornerTextField.swift in Sources */,
 				1B251D30226A78F900F57566 /* CenterVCDelegate.swift in Sources */,
+				1B46042C226E3B0B00E0A2E9 /* DriverAnnotation.swift in Sources */,
 				1B251D2D226A6C1100F57566 /* ContainerVC.swift in Sources */,
 				1B251D2B226A6B4000F57566 /* LeftSidePanelVC.swift in Sources */,
 				1B46042A226E29E400E0A2E9 /* UpdateService.swift in Sources */,

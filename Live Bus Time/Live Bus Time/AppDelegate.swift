@@ -13,22 +13,20 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    fileprivate var containerVC = ContainerVC()
+
     var MenuContainerVC: ContainerVC{
         return containerVC
     }
     
-    fileprivate var containerVC = ContainerVC()
-
-
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        FirebaseApp.configure()
         containerVC = ContainerVC()
+        
         window?.rootViewController = containerVC
         window?.makeKeyAndVisible()
         
-        FirebaseApp.configure() //only line from firebase website
-        // Override point for customization after application launch.
         return true
     }
 
