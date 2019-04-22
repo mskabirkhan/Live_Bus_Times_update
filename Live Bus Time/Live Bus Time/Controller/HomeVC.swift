@@ -12,7 +12,7 @@ import CoreLocation
 
 class HomeVC: UIViewController, MKMapViewDelegate {
     
-    @IBOutlet weak var map: MKMapView!     //Map
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
     
     var delegate: CenterVCDelegate?
@@ -29,11 +29,13 @@ class HomeVC: UIViewController, MKMapViewDelegate {
         manager?.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationAuthStatus()
         
-        map.delegate = self
+        mapView.delegate = self
         
         centerMapOnUserLocation()
+
         
     }
+
     
     func checkLocationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -46,10 +48,10 @@ class HomeVC: UIViewController, MKMapViewDelegate {
     }
     
     
-    //ceneter map view on location
+    
     func centerMapOnUserLocation() {
-        let coordinateRegion = MKCoordinateRegion(center: map.userLocation.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
-        map.setRegion(coordinateRegion, animated: true)
+        let coordinateRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     @IBAction func actionBtnWasPressed(_ sender: Any) {
@@ -67,12 +69,12 @@ class HomeVC: UIViewController, MKMapViewDelegate {
 
 
 extension HomeVC: CLLocationManagerDelegate {
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
-            if status == .authorizedAlways{
-                map.showsUserLocation = true
-                map.userTrackingMode = .follow
-                
-            }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        if status == .authorizedAlways{
+            mapView.showsUserLocation = true
+            mapView.userTrackingMode = .follow
+            
         }
     }
+}

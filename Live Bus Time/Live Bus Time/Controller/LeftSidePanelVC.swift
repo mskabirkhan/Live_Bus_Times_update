@@ -30,7 +30,7 @@ class LeftSidePanelVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pickUpModeSwitch.isOn = false
-        pickUpModeSwitch.isHidden  = true
+        pickUpModeSwitch.isHidden  = true //false in the vd
         pickUpModeLbl.isHidden = true
         
         
@@ -45,7 +45,7 @@ class LeftSidePanelVC: UIViewController {
         } else {
             userEmailLbl.text = Auth.auth().currentUser?.email
             userAccountTypeLbl.text = ""
-            userImageView.isHidden = false
+            userImageView.isHidden = false 
             loginOutBtn.setTitle("LogOut", for: .normal)
         }
     }
@@ -78,7 +78,7 @@ class LeftSidePanelVC: UIViewController {
             }
         })
     }
-    //error Fatal error: Unexpectedly found nil while unwrapping an Optional value
+    //check the pockup mode enableb with Firebase
     @IBAction func switchIsOn(_ sender: Any) {
         if pickUpModeSwitch.isOn {
             pickUpModeLbl.text = "Location Enabled"
@@ -87,7 +87,7 @@ class LeftSidePanelVC: UIViewController {
         } else {
             pickUpModeLbl.text = "Location DISABLED"
             appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["Location Enabled": false])
+            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsPickupModeEnabled": false])
         }
     }
     
@@ -113,7 +113,7 @@ class LeftSidePanelVC: UIViewController {
         }
     }
     /*
-     // MARK: - Navigation
+     //   MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
