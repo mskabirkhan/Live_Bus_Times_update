@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class HomeVC: UIViewController, MKMapViewDelegate {
+class HomeVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
@@ -77,4 +77,11 @@ extension HomeVC: CLLocationManagerDelegate {
             
         }
     }
+}
+
+extension HomeVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        UpdateService.instance.updateUserLocation(withCoordinate: userLocation.coordinate)
+        UpdateService.instance.updateDriverLocation(withCoordinate: userLocation.coordinate)
+}
 }
