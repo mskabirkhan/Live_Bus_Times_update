@@ -39,7 +39,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LZ-jR-5Hg">
                                                         <rect key="frame" x="0.0" y="0.0" width="38" height="45"/>
-                                                        <color key="backgroundColor" red="0.93566399812698364" green="0.15916857123374939" blue="0.153034508228302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="31"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -73,7 +73,8 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.14734252249999999" green="0.33333334329999997" blue="0.1200649135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.85804647842639592" green="0.05700337316487053" blue="0.19353640551674489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="KG7-YV-aDL" firstAttribute="top" secondItem="t8N-C0-LIg" secondAttribute="top" constant="18" id="58s-dA-o6E"/>
                                     <constraint firstItem="KG7-YV-aDL" firstAttribute="centerX" secondItem="t8N-C0-LIg" secondAttribute="centerX" id="aCN-lG-8ZL"/>
@@ -192,6 +193,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="actionBtn" destination="gE1-VF-wME" id="2mn-jS-s78"/>
+                        <outlet property="centerMapBtn" destination="sGi-6j-eRp" id="3gt-6q-udD"/>
                         <outlet property="mapView" destination="wjs-3h-wog" id="Aen-hE-yY9"/>
                     </connections>
                 </viewController>

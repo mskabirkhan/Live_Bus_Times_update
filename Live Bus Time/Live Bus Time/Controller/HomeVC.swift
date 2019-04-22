@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
+    @IBOutlet weak var centerMapBtn: UIButton!
     
     var delegate: CenterVCDelegate?
     var ref: DatabaseReference!
@@ -89,9 +90,7 @@ class HomeVC: UIViewController {
                                     }
                                 }
                             }
-                    }
-                   
-                        else
+                    }else
                         {
                             for annotation in self.mapView.annotations
                             {
@@ -128,6 +127,7 @@ class HomeVC: UIViewController {
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         centerMapOnUserLocation()
+        centerMapBtn.fadeTo(alphaValue: 0, withDuration: 0.2)
     }
     @IBAction func menuBtnWasPressed(_ sender: Any) {
         delegate?.toggleLeftPanel()
@@ -164,6 +164,9 @@ extension HomeVC: MKMapViewDelegate {
             return view
         }
         return nil
-
+    }
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        
+        centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
     }
 }
