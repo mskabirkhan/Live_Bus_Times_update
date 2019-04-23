@@ -20,10 +20,11 @@ class HomeVC: UIViewController, Alertable  {
     @IBOutlet weak var destinationCircle: CircleView!
     
     var delegate: CenterVCDelegate?
-    //var ref: DatabaseReference!
+    var ref: DatabaseReference!
     var manager: CLLocationManager?
     var regionRadius: CLLocationDistance = 1000
-    var currentUserId : String?
+    //var currentUserId = Auth.auth().currentUser?.uid
+    var currentUserId : String?             //look at into the
 
     
     var tableView = UITableView()
@@ -48,7 +49,7 @@ class HomeVC: UIViewController, Alertable  {
 
         
         centerMapOnUserLocation()
-        //ref = Database.database().reference() //stackoverflow
+        ref = Database.database().reference() //stackoverflow
 
         
         DataService.instance.REF_DRIVERS.observe(.value, with: { (snapshot) in
@@ -144,9 +145,9 @@ class HomeVC: UIViewController, Alertable  {
             {
                 for user in userSnapshot
                 {
-                    if user.key == self.currentUserId!
+                    if  user.key == self.currentUserId!
                     {
-                        if user.hasChild("TRIP_COORDINATE")
+                        if user.hasChild("tripCoordinate")
                         {
                             self.zoom(toFitAnnotationsFromMapView: self.mapView, forActiveTripWithDriver: false, withKey: nil)
                             self.centerMapBtn.fadeTo(alphaValue: 0.0, withDuration: 0.2)
@@ -198,17 +199,19 @@ extension HomeVC: MKMapViewDelegate {
             var view: MKAnnotationView
             
             view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.image = UIImage(named: "Icon-29")
+            view.image = UIImage(named: "Icon-29") //image icon for the Bus/driver location
             return view
-        }else if let annotation = annotation as? PassengerAnnotation {
+        }
+        else if let annotation = annotation as? PassengerAnnotation {
             
             let identifier = "passenger"
             var view: MKAnnotationView
             
             view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.image = UIImage(named: "currentLocationAnnotation")
+            view.image = UIImage(named: "currentLocationAnnotation") //pin for the current location
             return view
-        } else if let annotation = annotation as? MKPointAnnotation
+        }
+        else if let annotation = annotation as? MKPointAnnotation
         {
             let identifier = "destination"
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
@@ -262,11 +265,11 @@ extension HomeVC: MKMapViewDelegate {
             
             if error != nil
             {
-                self.showAlert("ERROR_MSG_UNEXPECTED_ERROR")
+                self.showAlert("Unexpected Error, Could't Handle!")
             }
             else if response!.mapItems.count == 0
-            {
-                self.showAlert("ERROR_MSG_NO_MATCHES_FOUND")
+              {
+                self.showAlert("Error! No Matches Found")
             }
             else
             {
@@ -311,7 +314,7 @@ extension HomeVC: MKMapViewDelegate {
         }
         
         request.destination = destinationMapItem
-        request.transportType = MKDirectionsTransportType.automobile
+        request.transportType = MKDirectionsTransportType.automobile //set the transport type
         request.requestsAlternateRoutes = true
         
         let directions = MKDirections(request: request)
@@ -326,6 +329,8 @@ extension HomeVC: MKMapViewDelegate {
             self.route = response.routes[0]
             
             self.mapView.addOverlay(self.route!.polyline)
+            //self.mapView.addOverlay(self.route!.distance) // to show the distance as well
+
             
             self.zoom(toFitAnnotationsFromMapView: self.mapView, forActiveTripWithDriver: false, withKey: nil)
             
@@ -392,7 +397,7 @@ extension HomeVC : UITextFieldDelegate {
         {
             tableView.frame = CGRect(x: 20, y: view.frame.height, width: view.frame.width - 40, height: view.frame.height - 170)
             tableView.layer.cornerRadius = 5.0
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellLocation")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellLocation")
             
             tableView.delegate = self
             tableView.dataSource = self
@@ -443,7 +448,7 @@ extension HomeVC : UITextFieldDelegate {
         matchingItems = []
         tableView.reloadData()
         
-        DataService.instance.REF_USERS.child(currentUserId!).child("TRIP_COORDINATE").removeValue()
+        DataService.instance.REF_USERS.child(currentUserId!).child("tripCoordinate").removeValue()
         mapView.removeOverlays(mapView.overlays)
         
         for annotation in mapView.annotations
@@ -494,7 +499,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellLocation")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellLocation")
         let mapItem = matchingItems[indexPath.row]
         
         cell.textLabel?.text = mapItem.name
@@ -516,7 +521,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         shouldPresentLoadingView(true)
         
         let passengerCoordinate = manager?.location?.coordinate
-        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserId!)
+        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserId!) //giving error , look at the var declaration
         
         mapView.addAnnotation(passengerAnnotation)
         
@@ -524,7 +529,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         
         let selectedMapItem = matchingItems[indexPath.row]
         
-        DataService.instance.REF_USERS.child(currentUserId!).updateChildValues(["TRIP_COORDINATE" : [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
+        DataService.instance.REF_USERS.child(currentUserId!).updateChildValues(["tripCoordinate" : [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
         
         dropPinFor(placemark: selectedMapItem.placemark)
         
@@ -533,10 +538,12 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         animateTableView(shouldShow: false)
     }
     
+    //when scrolled editing is finished 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
     }
     
+    //hide the scroll view
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         if destinationTextField.text == ""
