@@ -235,13 +235,15 @@ extension HomeVC: MKMapViewDelegate {
         
         centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
     }
-    //this function is to show the route of the destination 
+    //this function is to show the route of the destination and color
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let lineRenderer = MKPolylineRenderer(overlay: self.route.polyline)
-        
-        lineRenderer.strokeColor = UIColor(displayP3Red: 216/255, green: 71/255, blue: 30/255, alpha: 0.75)
-        lineRenderer.lineWidth = 3
+        //to color the route
+        lineRenderer.strokeColor = UIColor(red: 0.5882, green: 0.5176, blue: 1, alpha: 0.8)
+        //lineRenderer.strokeColor = UIColor(displayP3Red: 216/255, green: 100/255, blue: 30/255, alpha: 0.75)
+        lineRenderer.lineWidth = 5
+        //lineRenderer.lineJoin = .round
         
         shouldPresentLoadingView(false)
         
