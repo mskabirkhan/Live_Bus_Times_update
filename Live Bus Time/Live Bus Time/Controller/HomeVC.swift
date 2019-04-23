@@ -17,7 +17,7 @@ class HomeVC: UIViewController, Alertable  {
     @IBOutlet weak var actionBtn: RoundedShadowButton!
     @IBOutlet weak var centerMapBtn: UIButton!
     @IBOutlet weak var destinationTextField: UITextField!
-    @IBOutlet weak var destinationCircle: UIView!
+    @IBOutlet weak var destinationCircle: CircleView!
     
     var delegate: CenterVCDelegate?
     //var ref: DatabaseReference!
@@ -392,20 +392,20 @@ extension HomeVC : UITextFieldDelegate {
         {
             tableView.frame = CGRect(x: 20, y: view.frame.height, width: view.frame.width - 40, height: view.frame.height - 170)
             tableView.layer.cornerRadius = 5.0
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELL_LOCATION")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellLocation")
             
             tableView.delegate = self
             tableView.dataSource = self
             
             tableView.tag = 18
-            tableView.rowHeight = 60
+            tableView.rowHeight = 45 //individual size of tableview
             
             view.addSubview(tableView)
             animateTableView(shouldShow: true)
             
             UIView.animate(withDuration: 0.2, animations: {
                 self.destinationCircle.backgroundColor = UIColor.red
-                //self.destinationCircle.borderColor = UIColor.init(red: 199/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                self.destinationCircle.borderColor = UIColor.init(red: 199/255, green: 0/255, blue: 0/255, alpha: 1.0)
             })
         }
     }
@@ -428,8 +428,8 @@ extension HomeVC : UITextFieldDelegate {
             if destinationTextField.text == ""
             {
                 UIView.animate(withDuration: 0.2, animations: {
-                    //self.destinationCircle.backgroundColor = UIColor.lightGray
-                   // self.destinationCircle.borderColor = UIColor.darkGray
+                    self.destinationCircle.backgroundColor = UIColor.lightGray
+                   self.destinationCircle.borderColor = UIColor.darkGray
                 })
             }
         }
@@ -467,7 +467,7 @@ extension HomeVC : UITextFieldDelegate {
         if shouldShow
         {
             UIView.animate(withDuration: 0.2, animations: {
-                self.tableView.frame = CGRect(x: 20, y: 170, width: self.view.frame.width - 40, height: self.view.frame.height - 170)
+                self.tableView.frame = CGRect(x: 20, y: 210, width: self.view.frame.width - 40, height: self.view.frame.height - 170)
             })
         }
         else
@@ -494,7 +494,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CELL_LOCATION")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellLocation")
         let mapItem = matchingItems[indexPath.row]
         
         cell.textLabel?.text = mapItem.name

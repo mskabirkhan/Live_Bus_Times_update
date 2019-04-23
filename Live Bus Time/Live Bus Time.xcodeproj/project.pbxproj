@@ -33,6 +33,7 @@
 		1B46042E226E822100E0A2E9 /* PassengerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46042D226E822100E0A2E9 /* PassengerAnnotation.swift */; };
 		1B460430226E8D7A00E0A2E9 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46042F226E8D7A00E0A2E9 /* UIViewControllerExt.swift */; };
 		1B460432226E948F00E0A2E9 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460431226E948F00E0A2E9 /* Alertable.swift */; };
+		1B460434226F2CD000E0A2E9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460433226F2CD000E0A2E9 /* CircleView.swift */; };
 		37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */; };
 		77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */; };
 		E614709E0959CC91189391B4 /* Pods_Live_Bus_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */; };
@@ -89,6 +90,7 @@
 		1B46042D226E822100E0A2E9 /* PassengerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerAnnotation.swift; sourceTree = "<group>"; };
 		1B46042F226E8D7A00E0A2E9 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		1B460431226E948F00E0A2E9 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		1B460433226F2CD000E0A2E9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.release.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				1B251D36226B8DE000F57566 /* RoundedCornerTextField.swift */,
 				1B46042B226E3B0B00E0A2E9 /* DriverAnnotation.swift */,
 				1B46042D226E822100E0A2E9 /* PassengerAnnotation.swift */,
+				1B460433226F2CD000E0A2E9 /* CircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 			files = (
 				1B460432226E948F00E0A2E9 /* Alertable.swift in Sources */,
 				1B251D35226B7E4D00F57566 /* LoginVC.swift in Sources */,
+				1B460434226F2CD000E0A2E9 /* CircleView.swift in Sources */,
 				1B251D33226A9E5300F57566 /* UIViewExtension.swift in Sources */,
 				1B251D37226B8DE000F57566 /* RoundedCornerTextField.swift in Sources */,
 				1B251D30226A78F900F57566 /* CenterVCDelegate.swift in Sources */,
@@ -709,6 +713,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "NewKabir.Live-Bus-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -728,6 +733,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "NewKabir.Live-Bus-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
