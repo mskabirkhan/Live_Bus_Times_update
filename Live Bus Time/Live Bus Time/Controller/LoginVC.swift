@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class LoginVC: UIViewController, UITextFieldDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
     
     
     @IBOutlet weak var emailField: RoundedCornerTextField!
@@ -73,10 +73,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 switch errorCode
                                 {
                                 case .wrongPassword:
-                                    print("Whoops! That was the wrong password!")
-                                    
+                                    self.showAlert("StringWhoops! That was the wrong password!")
                                 default:
-                                    print("An unexpected error has occured. Please try again!!.")
+                                    self.showAlert("An unexpected error has occured. Please try again!!.")
                                 }
                             }
                             
@@ -89,13 +88,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                         switch errorCode
                                         {
                                         case .invalidEmail:
-                                            print ("This is an invalid email! Please try again.")
+                                           self.showAlert("This is an invalid email! Please try again.")
                                             
                                         case .emailAlreadyInUse:
-                                            print("This email is already in use. Please try again.")
+                                            self.showAlert("This email is already in use. Please try again.")
 
                                         default:
-                                            print("An unexpected error has occured. Please try again!!.")
+                                            self.showAlert("An unexpected error has occured. Please try again!!.")
                                         }
                                     }
                                 }
@@ -114,7 +113,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                                 
                                             }
                                     }
-                                    print("Successfully created a new user with firebase")
+                                    self.showAlert("Successfully created a new user with firebase")
                                     self.dismiss(animated: true, completion: nil)
                                 }
                             })
