@@ -31,7 +31,7 @@ extension UIViewController {
             
             spinner.startAnimating()
             
-            fadeView?.fadeTo(alphaValue: 0.7, withDuration: 0.2)
+            fadeView?.fadeTo(alphaValue: 0.7, withDuration: 0.3)
         }
         else
         {
