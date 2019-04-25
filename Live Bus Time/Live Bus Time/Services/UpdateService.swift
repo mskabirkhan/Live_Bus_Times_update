@@ -1,11 +1,3 @@
-//
-//  UpdateService.swift
-//  Live Bus Time
-//
-//  Created by Kabir on 22/04/2019.
-//  Copyright © 2019 Kabir. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import Firebase
@@ -25,6 +17,7 @@ class UpdateService {
             }
         })
     }
+    
     func updateDriverLocation(withCoordinate coordinate: CLLocationCoordinate2D) {
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value, with: { (snapshot) in
             if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
@@ -38,29 +31,51 @@ class UpdateService {
             }
         })
     }
-}
-func updateTripsWithCoordinatesUponRequest() {
     
-    DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+    func observeDriverTrips(handler : @escaping(_ coordinateDict : Dictionary<String, AnyObject>?) -> Void) {
         
-        if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot]
-        {
-            for user in userSnapshot
+        DataService.instance.REF_TRIPS.observe(.value, with: { (snapshot) in
+            
+            if let tripSnapshot = snapshot.children.allObjects as? [DataSnapshot]
             {
-                if user.key == Auth.auth().currentUser?.uid
+                for trip in tripSnapshot
                 {
-                    if !user.hasChild("userIsDriver")
+                    if trip.hasChild("passengerKey") && trip.hasChild("tripIsShared")
                     {
-                        if let userDict = user.value as? Dictionary<String, AnyObject>
+                        if let tripDict = trip.value as? Dictionary<String, AnyObject>
                         {
-                            let pickupArray = userDict["coordinate"] as! NSArray
-                            let destinationArray = userDict["tripCoordinate"] as! NSArray
-                            
-                            DataService.instance.REF_TRIPS.child(user.key).updateChildValues(["pickupCoordinate" : [pickupArray[0], pickupArray[1]], "destinationcoordinate" : [destinationArray[0], destinationArray[1]], "passengerKey" : user.key, "tripIsAccepted" : false])
+                            handler(tripDict)
                         }
                     }
                 }
             }
-        }
-    })
+        })
+    }
+    
+    
+    func updateTripsWithCoordinatesUponRequest() {
+        
+        DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot]
+            {
+                for user in userSnapshot
+                {
+                    if user.key == Auth.auth().currentUser?.uid
+                    {
+                        if !user.hasChild("userIsDriver")
+                        {
+                            if let userDict = user.value as? Dictionary<String, AnyObject>
+                            {
+                                let pickupArray = userDict["coordinate"] as! NSArray
+                                let destinationArray = userDict["tripCoordinate"] as! NSArray
+                                
+                                DataService.instance.REF_TRIPS.child(user.key).updateChildValues(["pickupCoordinate" : [pickupArray[0], pickupArray[1]], "destinationcoordinate" : [destinationArray[0], destinationArray[1]], "passengerKey" : user.key, "tripIsShared" : false]) //tripIsAccepted
+                            }
+                        }
+                    }
+                }
+            }
+        })
+    }
 }

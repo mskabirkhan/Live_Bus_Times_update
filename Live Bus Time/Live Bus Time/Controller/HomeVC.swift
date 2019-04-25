@@ -23,7 +23,6 @@ class HomeVC: UIViewController, Alertable  {
     var ref: DatabaseReference!
     var manager: CLLocationManager?
     var regionRadius: CLLocationDistance = 1000
-    //var currentUserId = Auth.auth().currentUser?.uid
     var currentUserId : String?             //look at into the
 
     
@@ -37,11 +36,13 @@ class HomeVC: UIViewController, Alertable  {
     
         super.viewDidLoad()
         
+        //guard Auth.auth().currentUser != nil else {return}
         currentUserId = Auth.auth().currentUser?.uid
-
+        //ref = Database.database().reference()
         manager = CLLocationManager()
         manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
+        
         checkLocationAuthStatus()
         
         mapView.delegate = self
@@ -49,15 +50,58 @@ class HomeVC: UIViewController, Alertable  {
 
         
         centerMapOnUserLocation()
-        ref = Database.database().reference() //stackoverflow
-
         
+        self.loadDriverAnnotationsFromFB()
+
         DataService.instance.REF_DRIVERS.observe(.value, with: { (snapshot) in
-            self.loadDriverAnnotationsFromFB()
         })
         
-    }
+        UpdateService.instance.observeDriverTrips { (tripDict) in
+            if let tripDict = tripDict
+            {   let pickupCoordinateArray = tripDict["pickupCoordinate"] as! NSArray
+                let tripKey = tripDict["passengerKey"] as! String
+                let acceptanceStatus = tripDict["tripIsShared"] as! Bool
 
+                if acceptanceStatus == false
+                {
+                    DataService.instance.driverIsAvailable(key: self.currentUserId!, handler: { (available) in
+
+                        if let available = available
+                        {  
+                            if available == true
+                            {
+                                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                let pickupVC = storyboard.instantiateViewController(withIdentifier: "PickupVC") as? PickupVC
+
+                                pickupVC?.initData(coordinate: CLLocationCoordinate2D(latitude: pickupCoordinateArray[0] as! CLLocationDegrees, longitude: pickupCoordinateArray[1] as! CLLocationDegrees), passengerKey: tripKey)
+
+                                self.present(pickupVC!, animated: true, completion: nil)                           }
+                        }
+                    })
+                }
+            }
+        }
+    }
+// added to check handle erroe of authuser
+    func authUser(user: String, pw: String) {
+    Auth.auth().signIn(withEmail: user, password: pw, completion: { (auth, error) in
+    if let x = error {
+    let err = x as NSError
+    switch err.code {
+    case AuthErrorCode.wrongPassword.rawValue:
+    print("wrong password")
+    case AuthErrorCode.invalidEmail.rawValue:
+    print("invalued email")
+    default:
+    print("unknown error")
+    }
+    } else {
+    if let user = auth?.user {  //note; safely unwrap optional
+    print("uid: \(user.uid)")
+    }
+    }
+    })
+    }
     
     func checkLocationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -135,7 +179,10 @@ class HomeVC: UIViewController, Alertable  {
     }
     
     @IBAction func actionBtnWasPressed(_ sender: Any) {
+        UpdateService.instance.updateTripsWithCoordinatesUponRequest()
         actionBtn.animateButton(shouldLoad: true, withMessage: nil)
+        self.view.endEditing(true)
+        destinationTextField.isUserInteractionEnabled = false
     }
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
@@ -145,7 +192,7 @@ class HomeVC: UIViewController, Alertable  {
             {
                 for user in userSnapshot
                 {
-                    if  user.key == self.currentUserId!
+                    if  user.key == self.currentUserId!  
                     {
                         if user.hasChild("tripCoordinate")
                         {
@@ -169,7 +216,7 @@ class HomeVC: UIViewController, Alertable  {
     @IBAction func menuBtnWasPressed(_ sender: Any) {
         delegate?.toggleLeftPanel()
     }
-
+    
 
 }
 

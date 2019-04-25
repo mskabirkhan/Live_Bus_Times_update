@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>livebustimesupdate.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:313787643593:ios:f827e1dc3f30ed49</string>
 	<key>DATABASE_URL</key>
 	<string>https://livebustimesupdate.firebaseio.com</string>
+	<key>IS_MEASUREMENT_ENABLED</key>
+	<false/>
 </dict>
 </plist>

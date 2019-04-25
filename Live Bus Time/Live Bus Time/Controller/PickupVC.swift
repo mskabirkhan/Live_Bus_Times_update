@@ -1,27 +1,51 @@
 //
-//  SharingScreenVC.swift
+//  PickupVC.swift
 //  Live Bus Time
 //
-//  Created by Kabir on 24/04/2019.
+//  Created by Kabir on 25/04/2019.
 //  Copyright © 2019 Kabir. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
+class PickupVC: UIViewController {
 
-class SharingScreenVC: UIViewController {
-
-    @IBOutlet weak var pickupMapView: MKMapView!
-    var regionRadius : CLLocationDistance = 1500
+    @IBOutlet weak var pickupMapView: RoundMapView!
+    
+    var pickupCoordinate: CLLocationCoordinate2D!
+    var passengerKey: String!
+    
+    var regionRadius : CLLocationDistance = 1000
     var pin : MKPlacemark? = nil
-
+    
+    var locationPlacemark: MKPlacemark!
+    
+    //var currentUserId = Auth.auth().currentUser?.uid
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickupMapView.delegate = self
+        
+        locationPlacemark = MKPlacemark(coordinate: pickupCoordinate)
+        
+        dropPinFor(placemark: locationPlacemark)
+        centerMapOnLocation(location: locationPlacemark.location!)
+    }
+    
+    func initData(coordinate: CLLocationCoordinate2D, passengerKey: String) {
+        
+        self.pickupCoordinate = coordinate
+        self.passengerKey = passengerKey
     }
     
     
+    @IBAction func locationAcceptTripBtnPressed(_ sender: Any) {
+        
+    }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -29,16 +53,23 @@ class SharingScreenVC: UIViewController {
     }
     
     
-    @IBAction func locationSharedBtnWasPressed(_ sender: Any) {
+    /* 
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
+
 }
 
-extension SharingScreenVC : MKMapViewDelegate {
+extension PickupVC : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let identifier = "busStand"
+        let identifier = "pickupPoint"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if annotationView == nil
@@ -53,11 +84,13 @@ extension SharingScreenVC : MKMapViewDelegate {
         annotationView?.image = UIImage(named: "destinationAnnotation")
         
         return annotationView
-}
+    }
     
     func centerMapOnLocation(location : CLLocation) {
         
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+
+        //let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         pickupMapView.setRegion(coordinateRegion, animated: true)
     }
     
