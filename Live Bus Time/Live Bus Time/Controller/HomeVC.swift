@@ -36,8 +36,8 @@ class HomeVC: UIViewController, Alertable  {
     
         super.viewDidLoad()
         
-        //guard Auth.auth().currentUser != nil else {return}
-        currentUserId = Auth.auth().currentUser?.uid
+        guard Auth.auth().currentUser != nil else {return}
+        //currentUserId = Auth.auth().currentUser?.uid
         //ref = Database.database().reference()
         manager = CLLocationManager()
         manager?.delegate = self
