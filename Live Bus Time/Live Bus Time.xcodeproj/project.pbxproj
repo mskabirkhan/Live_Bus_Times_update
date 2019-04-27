@@ -67,6 +67,7 @@
 		1B251D32226A9E5300F57566 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		1B251D34226B7E4D00F57566 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B251D36226B8DE000F57566 /* RoundedCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTextField.swift; sourceTree = "<group>"; };
+		1B39A34A2274C3C1003DF4EF /* UK_london.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UK_london.gpx; sourceTree = "<group>"; };
 		1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1B3A3CAB226A4DB000A10F45 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadawView.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 				1B3A6B6921F926C400D3CABD /* LaunchScreen.storyboard */,
 				1B3A6B6C21F926C400D3CABD /* Info.plist */,
 				1B460420226B99A800E0A2E9 /* GoogleService-Info.plist */,
+				1B39A34A2274C3C1003DF4EF /* UK_london.gpx */,
 			);
 			path = "Live Bus Time";
 			sourceTree = "<group>";

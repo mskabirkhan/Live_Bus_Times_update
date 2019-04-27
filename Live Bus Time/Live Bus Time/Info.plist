@@ -46,9 +46,9 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>LBTU needs your location to operate!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>LBTU needs your location to operate!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>LBTU needs your location to operate!</string>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
 </dict>

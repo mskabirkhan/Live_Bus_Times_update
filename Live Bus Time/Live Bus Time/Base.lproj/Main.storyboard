@@ -167,21 +167,20 @@
                             <constraint firstAttribute="bottom" secondItem="gE1-VF-wME" secondAttribute="bottom" constant="20" symbolic="YES" id="4ol-d6-xlJ"/>
                             <constraint firstItem="wjs-3h-wog" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4vv-rT-MbF"/>
                             <constraint firstItem="t8N-C0-LIg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5sU-CF-8fW"/>
-                            <constraint firstItem="sGi-6j-eRp" firstAttribute="top" secondItem="xdb-u5-4A3" secondAttribute="bottom" constant="291" id="5tc-AL-wQK"/>
                             <constraint firstItem="xdb-u5-4A3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="81" id="6Yg-RY-Syh"/>
                             <constraint firstItem="xdb-u5-4A3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DFB-2U-og3"/>
                             <constraint firstItem="t8N-C0-LIg" firstAttribute="leading" secondItem="xdb-u5-4A3" secondAttribute="leading" id="F42-Lf-0Tj"/>
-                            <constraint firstItem="gE1-VF-wME" firstAttribute="top" secondItem="sGi-6j-eRp" secondAttribute="bottom" constant="40" id="JNw-Jp-Z0c"/>
+                            <constraint firstItem="gE1-VF-wME" firstAttribute="top" secondItem="sGi-6j-eRp" secondAttribute="bottom" constant="40" id="H9V-sB-jG5"/>
                             <constraint firstAttribute="trailing" secondItem="wjs-3h-wog" secondAttribute="trailing" id="MGs-hE-dzK"/>
+                            <constraint firstItem="sGi-6j-eRp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="298" id="U8N-aY-2ma"/>
                             <constraint firstItem="gE1-VF-wME" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Wtg-Su-6KM"/>
+                            <constraint firstAttribute="bottom" secondItem="sGi-6j-eRp" secondAttribute="bottom" constant="107" id="ZvM-6q-Ayv"/>
                             <constraint firstItem="gE1-VF-wME" firstAttribute="centerX" secondItem="t8N-C0-LIg" secondAttribute="centerX" id="c53-UI-sMi"/>
                             <constraint firstItem="wjs-3h-wog" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dNc-tR-WCG"/>
                             <constraint firstAttribute="trailing" secondItem="xdb-u5-4A3" secondAttribute="trailing" constant="-41" id="fP5-k2-Sr3"/>
                             <constraint firstAttribute="trailing" secondItem="xdb-u5-4A3" secondAttribute="trailing" constant="-41" id="jK9-6h-guU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sGi-6j-eRp" secondAttribute="bottom" constant="107" id="kU6-sz-0zi"/>
                             <constraint firstItem="wjs-3h-wog" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="trn-D1-dpk"/>
                             <constraint firstItem="t8N-C0-LIg" firstAttribute="trailing" secondItem="wjs-3h-wog" secondAttribute="trailing" id="xVJ-0C-nku"/>
-                            <constraint firstItem="sGi-6j-eRp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="298" id="xYO-Ob-G0s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -524,7 +523,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-PJ-FcZ">
-                                <rect key="frame" x="16" y="33" width="43" height="22"/>
+                                <rect key="frame" x="16" y="33" width="43" height="31"/>
                                 <color key="backgroundColor" red="0.93566399810000001" green="0.1591685712" blue="0.1530345082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="c7C-Wj-9mv"/>
