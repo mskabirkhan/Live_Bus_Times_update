@@ -41,7 +41,7 @@ class HomeVC: UIViewController, Alertable  {
         manager?.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationAuthStatus()
 
-       // guard Auth.auth().currentUser != nil else {return}
+       //guard Auth.auth().currentUser != nil else {return}
         //currentUserId = Auth.auth().currentUser?.uid
        // ref = Database.database().reference()
         mapView.delegate = self
@@ -414,6 +414,32 @@ extension HomeVC: MKMapViewDelegate {
         
         region = mapView.regionThatFits(region)
         mapView.setRegion(region, animated: true)
+    }
+    
+    
+    func removeOverlayAndAnnotations(forDrivers: Bool?, forPassengers: Bool?) {
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            }
+            
+            if forPassengers! {
+                if let annotation = annotation as? PassengerAnnotation {
+                    mapView.removeAnnotation(annotation)
+                }
+            }
+            if forDrivers! {
+                if let annotation = annotation as? DriverAnnotation {
+                    mapView.removeAnnotation(annotation)
+                }
+            }
+        }
+        
+        for overlay in mapView.overlays {
+            if overlay is MKPolyline {
+                mapView.removeOverlay(overlay)
+            }
+        }
     }
 }
 

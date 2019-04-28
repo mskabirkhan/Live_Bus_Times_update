@@ -16,14 +16,17 @@ class PickupVC: UIViewController {
     var pickupCoordinate: CLLocationCoordinate2D!
     var passengerKey: String!
     
+    var locationPlacemark: MKPlacemark!
+
+    
     var regionRadius : CLLocationDistance = 1000
     var pin : MKPlacemark? = nil
     
-    var locationPlacemark: MKPlacemark!
     
     //var currentUserId = Auth.auth().currentUser?.uid
     
-    
+    //var id = Auth.auth().currentUser?.uid
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +93,7 @@ extension PickupVC : MKMapViewDelegate {
         
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
 
-        //let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        _ = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         pickupMapView.setRegion(coordinateRegion, animated: true)
     }
     

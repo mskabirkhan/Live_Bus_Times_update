@@ -2,7 +2,7 @@
 //  LeftSidePanelVC.swift
 //  Live Bus Time
 //
-//  Created by Kabir on 19/04/2019.
+//  Created by Kabir on 19/03/2019.
 //  Copyright © 2019 Kabir. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Firebase
 
 class LeftSidePanelVC: UIViewController {
     
-    let currentUserId = Auth.auth().currentUser?.uid
+    //let currentUserId = Auth.auth().currentUser?.uid
     let appDelegate = AppDelegate.getAppDelegate()
 
     @IBOutlet weak var userImageView: RoundImageView!
@@ -82,12 +82,17 @@ class LeftSidePanelVC: UIViewController {
     @IBAction func switchIsOn(_ sender: Any) {
         if pickUpModeSwitch.isOn {
             pickUpModeLbl.text = "Location Enabled"
-            appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsPickupModeEnabled": true])
+            if let currentUserId = Auth.auth().currentUser?.uid {
+                appDelegate.MenuContainerVC.toggleLeftPanel()
+                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["IsPickupModeEnabled" : true])
+                //Have to implement func to updatevalue on driver when logging in, since login by default is pickupmodedisabled.
+            }
         } else {
-            pickUpModeLbl.text = "Location DISABLED"
-            appDelegate.MenuContainerVC.toggleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["IsPickupModeEnabled": false])
+            pickUpModeLbl.text = "Location Disabled"
+            if let currentUserId = Auth.auth().currentUser?.uid {
+                appDelegate.MenuContainerVC.toggleLeftPanel()
+                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["IsPickupModeEnabled" : false])
+            }
         }
     }
     

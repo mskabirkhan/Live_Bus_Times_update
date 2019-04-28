@@ -197,11 +197,11 @@ extension ContainerVC : CenterVCDelegate {
         
         if status == true
         {
-            centerController.view.layer.shadowOpacity = 0.8
+            centerController.view.layer.shadowOpacity = 0.6
         }
         else
         {
-            centerController.view.layer.shadowOpacity = 0.6
+            centerController.view.layer.shadowOpacity = 0
         }
     }
     
