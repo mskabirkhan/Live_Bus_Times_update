@@ -297,7 +297,6 @@ extension HomeVC: MKMapViewDelegate {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = destinationTextField.text
         request.region = mapView.region
-        
         let search = MKLocalSearch(request: request)
         
         search.start { (response, error) in
@@ -510,30 +509,30 @@ extension HomeVC : UITextFieldDelegate {
     
     
     //remove passenger annotation and remove all overlays
+    //remove selected and searched text filed from searchbar
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        
         matchingItems = []
         tableView.reloadData()
         
-        DataService.instance.REF_USERS.child(currentUserId!).child("tripCoordinate").removeValue()
-        mapView.removeOverlays(mapView.overlays)
+        if let id = Auth.auth().currentUser?.uid {
+            DataService.instance.REF_USERS.child(id).child("tripCoordinate").removeValue()
+        }
         
-        for annotation in mapView.annotations
-        {
-            if let annotation = annotation as? MKPointAnnotation
-            {
+        mapView.removeOverlays(mapView.overlays)
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
                 mapView.removeAnnotation(annotation)
-            }
-            else if annotation.isKind(of: PassengerAnnotation.self)
-            {
+            } else if annotation.isKind(of: PassengerAnnotation.self) {
                 mapView.removeAnnotation(annotation)
             }
         }
         
         centerMapOnUserLocation()
+        
         return true
     }
     
+    //to animate table view while user selecting
     func animateTableView(shouldShow : Bool) {
         
         if shouldShow
