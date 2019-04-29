@@ -66,18 +66,15 @@
                                         <color key="backgroundColor" red="0.14734252249999999" green="0.33333334329999997" blue="0.1200649135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="l48-iD-B8g" firstAttribute="leading" secondItem="LiV-wj-uGI" secondAttribute="trailing" constant="95" id="3a8-zW-GVV"/>
-                                            <constraint firstAttribute="width" constant="341" id="8Pm-UD-4Yv"/>
-                                            <constraint firstAttribute="height" constant="45" id="jup-sT-xEu"/>
-                                            <constraint firstItem="l48-iD-B8g" firstAttribute="top" secondItem="KG7-YV-aDL" secondAttribute="top" id="yNa-4I-kAm"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85804647842639592" green="0.05700337316487053" blue="0.19353640551674489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="KG7-YV-aDL" firstAttribute="top" secondItem="t8N-C0-LIg" secondAttribute="top" constant="18" id="58s-dA-o6E"/>
-                                    <constraint firstItem="KG7-YV-aDL" firstAttribute="centerX" secondItem="t8N-C0-LIg" secondAttribute="centerX" id="aCN-lG-8ZL"/>
-                                    <constraint firstAttribute="bottom" secondItem="KG7-YV-aDL" secondAttribute="bottom" constant="77" id="shq-eu-2fc"/>
+                                    <constraint firstAttribute="bottom" secondItem="KG7-YV-aDL" secondAttribute="bottom" constant="77" id="04X-z3-rYw"/>
+                                    <constraint firstItem="KG7-YV-aDL" firstAttribute="centerX" secondItem="t8N-C0-LIg" secondAttribute="centerX" id="av7-S4-TKS"/>
+                                    <constraint firstItem="KG7-YV-aDL" firstAttribute="top" secondItem="t8N-C0-LIg" secondAttribute="top" constant="18" id="im3-0d-6G9"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGi-6j-eRp">

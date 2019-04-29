@@ -30,11 +30,24 @@ class HomeVC: UIViewController, Alertable  {
     var matchingItems : [MKMapItem] = [MKMapItem]()
     var selectedItemPlacemark : MKPlacemark? = nil
     var route : MKRoute!
+    //let locationManager = CLLocationManager() // declared var to get user location SF
 
     
     override func viewDidLoad() {
     
         super.viewDidLoad()
+        
+//        // Ask for Authorisation from the User. SF
+//        self.locationManager.requestAlwaysAuthorization()
+//        
+//        // For use in foreground
+//        self.locationManager.requestWhenInUseAuthorization()
+//        
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        } // SF
         
         manager = CLLocationManager()
         manager?.delegate = self

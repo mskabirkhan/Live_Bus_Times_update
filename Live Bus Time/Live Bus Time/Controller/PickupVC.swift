@@ -19,7 +19,7 @@ class PickupVC: UIViewController {
     var locationPlacemark: MKPlacemark!
 
     
-    var regionRadius : CLLocationDistance = 1000
+    var regionRadius : CLLocationDistance = 2000
     var pin : MKPlacemark? = nil
     
     
