@@ -20,7 +20,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wjs-3h-wog">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8N-C0-LIg">
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8N-C0-LIg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="95" translatesAutoresizingMaskIntoConstraints="NO" id="KG7-YV-aDL">
@@ -69,8 +69,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.85804647842639592" green="0.05700337316487053" blue="0.19353640551674489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18760742701608579" green="0.28862141495981769" blue="0.48753505521619378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KG7-YV-aDL" secondAttribute="bottom" constant="77" id="04X-z3-rYw"/>
                                     <constraint firstItem="KG7-YV-aDL" firstAttribute="centerX" secondItem="t8N-C0-LIg" secondAttribute="centerX" id="av7-S4-TKS"/>
@@ -84,66 +83,74 @@
                                     <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="34b-OY-hOG"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xdb-u5-4A3">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xdb-u5-4A3">
                                 <rect key="frame" x="0.0" y="101" width="416" height="106"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Yt1-ej-lhX" customClass="RoundedShadawView" customModule="Live_Bus_Time" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="416" height="106"/>
                                         <subviews>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" text="My Location" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="71K-FU-w0e">
-                                                <rect key="frame" x="76" y="17" width="264" height="28"/>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="My Location" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="71K-FU-w0e">
+                                                <rect key="frame" x="69" y="13" width="264" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="wdH-U5-UsL"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g1u-5E-4yt">
-                                                <rect key="frame" x="76" y="74" width="264" height="28"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Where are you going?" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g1u-5E-4yt">
+                                                <rect key="frame" x="69" y="70" width="264" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="Rkj-Do-ibB"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEv-aB-vb2">
-                                                <rect key="frame" x="0.0" y="58" width="416" height="8"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="416" height="8"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                            </view>
-                                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="J81-YQ-Axw">
-                                                <rect key="frame" x="12" y="24" width="25" height="15"/>
-                                                <color key="backgroundColor" red="0.27655944228172302" green="0.9797402024269104" blue="0.012517845258116722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="TM2-vD-wyC" customClass="CircleView" customModule="Live_Bus_Time" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="74" width="25" height="20"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.56269168720862939" green="0.188956259511455" blue="0.32189727008057628" alpha="0.83513484589041098" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.49632688282959214" green="0.44352013406683383" blue="0.62123984582533087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="J81-YQ-Axw" customClass="CircleView" customModule="Live_Bus_Time" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="19" width="25" height="17"/>
+                                                <color key="backgroundColor" red="0.27655944228172302" green="0.9797402024269104" blue="0.012517845258116722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="AEv-aB-vb2" secondAttribute="trailing" id="0LU-KM-xOj"/>
+                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="centerX" secondItem="g1u-5E-4yt" secondAttribute="centerX" constant="7" id="22I-hP-p7r"/>
                                             <constraint firstItem="g1u-5E-4yt" firstAttribute="leading" secondItem="71K-FU-w0e" secondAttribute="leading" id="6Rj-tr-wKU"/>
-                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="leading" secondItem="Yt1-ej-lhX" secondAttribute="leading" id="9FC-JZ-K2C"/>
-                                            <constraint firstAttribute="trailing" secondItem="71K-FU-w0e" secondAttribute="trailing" constant="76" id="BAf-1P-1Wq"/>
-                                            <constraint firstItem="g1u-5E-4yt" firstAttribute="top" secondItem="TM2-vD-wyC" secondAttribute="top" id="DKr-HG-N5i"/>
-                                            <constraint firstAttribute="bottom" secondItem="g1u-5E-4yt" secondAttribute="bottom" constant="4" id="GkC-D2-9UM"/>
-                                            <constraint firstItem="71K-FU-w0e" firstAttribute="top" secondItem="Yt1-ej-lhX" secondAttribute="top" constant="17" id="JE5-Ep-geN"/>
-                                            <constraint firstItem="J81-YQ-Axw" firstAttribute="leading" secondItem="Yt1-ej-lhX" secondAttribute="leading" constant="12" id="UoR-1T-uZj"/>
-                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="top" secondItem="71K-FU-w0e" secondAttribute="bottom" constant="13" id="WfV-1K-6AS"/>
-                                            <constraint firstItem="71K-FU-w0e" firstAttribute="leading" secondItem="J81-YQ-Axw" secondAttribute="trailing" constant="39" id="Y97-PN-MUR"/>
+                                            <constraint firstAttribute="bottom" secondItem="g1u-5E-4yt" secondAttribute="bottom" constant="8" id="7mg-Pn-vUk"/>
+                                            <constraint firstItem="g1u-5E-4yt" firstAttribute="top" secondItem="TM2-vD-wyC" secondAttribute="top" constant="-4" id="DKr-HG-N5i"/>
+                                            <constraint firstItem="TM2-vD-wyC" firstAttribute="top" secondItem="AEv-aB-vb2" secondAttribute="bottom" constant="16.600005944191707" id="Iln-YR-xQh"/>
+                                            <constraint firstItem="J81-YQ-Axw" firstAttribute="leading" secondItem="Yt1-ej-lhX" secondAttribute="leading" constant="12" id="LE3-kJ-yhG"/>
+                                            <constraint firstItem="J81-YQ-Axw" firstAttribute="bottom" secondItem="71K-FU-w0e" secondAttribute="bottom" constant="-5" id="Ml0-cA-27V"/>
+                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="leading" secondItem="Yt1-ej-lhX" secondAttribute="leading" id="NJ2-s0-swA"/>
+                                            <constraint firstAttribute="bottom" secondItem="TM2-vD-wyC" secondAttribute="bottom" constant="12" id="Ncg-DW-LMC"/>
+                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="top" secondItem="71K-FU-w0e" secondAttribute="bottom" constant="8.5" id="PVP-uW-dps"/>
+                                            <constraint firstItem="J81-YQ-Axw" firstAttribute="top" secondItem="Yt1-ej-lhX" secondAttribute="top" constant="19" id="XgT-Pk-mCn"/>
+                                            <constraint firstItem="71K-FU-w0e" firstAttribute="top" secondItem="Yt1-ej-lhX" secondAttribute="top" constant="13" id="Xln-uH-Mbu"/>
+                                            <constraint firstItem="71K-FU-w0e" firstAttribute="leading" secondItem="J81-YQ-Axw" secondAttribute="trailing" constant="32" id="Y97-PN-MUR"/>
                                             <constraint firstItem="TM2-vD-wyC" firstAttribute="trailing" secondItem="J81-YQ-Axw" secondAttribute="trailing" id="YuS-7h-ThE"/>
                                             <constraint firstItem="TM2-vD-wyC" firstAttribute="leading" secondItem="J81-YQ-Axw" secondAttribute="leading" id="a0d-pc-d8I"/>
-                                            <constraint firstAttribute="bottom" secondItem="TM2-vD-wyC" secondAttribute="bottom" constant="12" id="aPN-zU-MVr"/>
-                                            <constraint firstItem="J81-YQ-Axw" firstAttribute="top" secondItem="Yt1-ej-lhX" secondAttribute="top" constant="24" id="jgP-lj-GkK"/>
-                                            <constraint firstItem="AEv-aB-vb2" firstAttribute="top" secondItem="J81-YQ-Axw" secondAttribute="bottom" constant="19" id="nt4-NM-Esp"/>
-                                            <constraint firstItem="g1u-5E-4yt" firstAttribute="centerX" secondItem="AEv-aB-vb2" secondAttribute="centerX" id="rnD-cF-AAS"/>
+                                            <constraint firstAttribute="trailing" secondItem="71K-FU-w0e" secondAttribute="trailing" constant="83" id="oLl-Q2-cVU"/>
                                             <constraint firstItem="g1u-5E-4yt" firstAttribute="trailing" secondItem="71K-FU-w0e" secondAttribute="trailing" id="tjI-d6-Qwr"/>
-                                            <constraint firstItem="g1u-5E-4yt" firstAttribute="top" secondItem="AEv-aB-vb2" secondAttribute="bottom" constant="8" symbolic="YES" id="ye1-fu-tsu"/>
+                                            <constraint firstAttribute="trailing" secondItem="AEv-aB-vb2" secondAttribute="trailing" id="ys5-bb-hPr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Yt1-ej-lhX" firstAttribute="leading" secondItem="xdb-u5-4A3" secondAttribute="leading" id="7ci-Zx-L1y"/>
                                     <constraint firstAttribute="height" constant="106" id="j5Q-s4-l2P"/>
+                                    <constraint firstItem="Yt1-ej-lhX" firstAttribute="leading" secondItem="xdb-u5-4A3" secondAttribute="leading" id="kqw-Uu-cXT"/>
                                     <constraint firstAttribute="width" constant="416" id="pw3-di-3uo"/>
                                 </constraints>
                             </stackView>
@@ -194,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="-404"/>
+            <point key="canvasLocation" x="-1212" y="-404"/>
         </scene>
         <!--Left Side PanelVC-->
         <scene sceneID="HEI-ZY-ISx">
