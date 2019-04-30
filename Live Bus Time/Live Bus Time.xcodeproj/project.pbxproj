@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B251D2B226A6B4000F57566 /* LeftSidePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D2A226A6B4000F57566 /* LeftSidePanelVC.swift */; };
+		1B251D2B226A6B4000F57566 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D2A226A6B4000F57566 /* MenuViewController.swift */; };
 		1B251D2D226A6C1100F57566 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D2C226A6C1100F57566 /* ContainerVC.swift */; };
 		1B251D30226A78F900F57566 /* CenterVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D2F226A78F900F57566 /* CenterVCDelegate.swift */; };
 		1B251D33226A9E5300F57566 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D32226A9E5300F57566 /* UIViewExtension.swift */; };
-		1B251D35226B7E4D00F57566 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D34226B7E4D00F57566 /* LoginVC.swift */; };
+		1B251D35226B7E4D00F57566 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D34226B7E4D00F57566 /* SignUpViewController.swift */; };
 		1B251D37226B8DE000F57566 /* RoundedCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251D36226B8DE000F57566 /* RoundedCornerTextField.swift */; };
 		1B27D6E42270DF82007B4F21 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460429226E29E400E0A2E9 /* UpdateService.swift */; };
-		1B27D6E52270E0CF007B4F21 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A6B6221F926C200D3CABD /* HomeVC.swift */; };
+		1B27D6E52270E0CF007B4F21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A6B6221F926C200D3CABD /* MainViewController.swift */; };
 		1B3A3CAA226A3EEB00A10F45 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */; };
 		1B3A3CAC226A4DB000A10F45 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CAB226A4DB000A10F45 /* RoundImageView.swift */; };
 		1B3A3CAE226A4E6800A10F45 /* RoundedShadawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A3CAD226A4E6800A10F45 /* RoundedShadawView.swift */; };
@@ -35,7 +35,7 @@
 		1B460432226E948F00E0A2E9 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460431226E948F00E0A2E9 /* Alertable.swift */; };
 		1B460434226F2CD000E0A2E9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B460433226F2CD000E0A2E9 /* CircleView.swift */; };
 		1B460439226FB8F100E0A2E9 /* gaziantep.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1B460438226FB8F100E0A2E9 /* gaziantep.gpx */; };
-		1BDC86982271F2A1009345A0 /* PickupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC86972271F2A1009345A0 /* PickupVC.swift */; };
+		1BDC86982271F2A1009345A0 /* LocationSharedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC86972271F2A1009345A0 /* LocationSharedViewController.swift */; };
 		1BDC869A2271F3BC009345A0 /* RoundMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC86992271F3BC009345A0 /* RoundMapView.swift */; };
 		37037A04043A6B99812C1A99 /* Pods_Live_Bus_TimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7D11B9D6453F66206EFB5A /* Pods_Live_Bus_TimeTests.framework */; };
 		77D2AD9604148ECADE6888F6 /* Pods_Live_Bus_TimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EBA229D999476632A583C /* Pods_Live_Bus_TimeUITests.framework */; };
@@ -61,11 +61,11 @@
 
 /* Begin PBXFileReference section */
 		188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus Time.debug.xcconfig"; path = "Target Support Files/Pods-Live Bus Time/Pods-Live Bus Time.debug.xcconfig"; sourceTree = "<group>"; };
-		1B251D2A226A6B4000F57566 /* LeftSidePanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSidePanelVC.swift; sourceTree = "<group>"; };
+		1B251D2A226A6B4000F57566 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1B251D2C226A6C1100F57566 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		1B251D2F226A78F900F57566 /* CenterVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVCDelegate.swift; sourceTree = "<group>"; };
 		1B251D32226A9E5300F57566 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		1B251D34226B7E4D00F57566 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1B251D34226B7E4D00F57566 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1B251D36226B8DE000F57566 /* RoundedCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTextField.swift; sourceTree = "<group>"; };
 		1B39A34A2274C3C1003DF4EF /* UK_london.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UK_london.gpx; sourceTree = "<group>"; };
 		1B3A3CA9226A3EEB00A10F45 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		1B3A3CAF226A512B00A10F45 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		1B3A6B5D21F926C200D3CABD /* Live Bus Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Bus Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3A6B6021F926C200D3CABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B3A6B6221F926C200D3CABD /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1B3A6B6221F926C200D3CABD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B3A6B6521F926C200D3CABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B3A6B6721F926C400D3CABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3A6B6A21F926C400D3CABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		1B460431226E948F00E0A2E9 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		1B460433226F2CD000E0A2E9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		1B460438226FB8F100E0A2E9 /* gaziantep.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gaziantep.gpx; sourceTree = "<group>"; };
-		1BDC86972271F2A1009345A0 /* PickupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupVC.swift; sourceTree = "<group>"; };
+		1BDC86972271F2A1009345A0 /* LocationSharedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSharedViewController.swift; sourceTree = "<group>"; };
 		1BDC86992271F3BC009345A0 /* RoundMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundMapView.swift; sourceTree = "<group>"; };
 		2BF0BFC7C654C24C7E1E5B79 /* Pods_Live_Bus_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_Bus_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FD69557E513DA3305D7454 /* Pods-Live Bus TimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live Bus TimeUITests.release.xcconfig"; path = "Target Support Files/Pods-Live Bus TimeUITests/Pods-Live Bus TimeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,11 +183,11 @@
 		1B3A3CA8226A3E5B00A10F45 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1B3A6B6221F926C200D3CABD /* HomeVC.swift */,
-				1B251D2A226A6B4000F57566 /* LeftSidePanelVC.swift */,
+				1B3A6B6221F926C200D3CABD /* MainViewController.swift */,
+				1B251D2A226A6B4000F57566 /* MenuViewController.swift */,
 				1B251D2C226A6C1100F57566 /* ContainerVC.swift */,
-				1B251D34226B7E4D00F57566 /* LoginVC.swift */,
-				1BDC86972271F2A1009345A0 /* PickupVC.swift */,
+				1B251D34226B7E4D00F57566 /* SignUpViewController.swift */,
+				1BDC86972271F2A1009345A0 /* LocationSharedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -523,20 +523,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B460432226E948F00E0A2E9 /* Alertable.swift in Sources */,
-				1B27D6E52270E0CF007B4F21 /* HomeVC.swift in Sources */,
-				1B251D35226B7E4D00F57566 /* LoginVC.swift in Sources */,
+				1B27D6E52270E0CF007B4F21 /* MainViewController.swift in Sources */,
+				1B251D35226B7E4D00F57566 /* SignUpViewController.swift in Sources */,
 				1B460434226F2CD000E0A2E9 /* CircleView.swift in Sources */,
 				1B251D33226A9E5300F57566 /* UIViewExtension.swift in Sources */,
 				1B251D37226B8DE000F57566 /* RoundedCornerTextField.swift in Sources */,
 				1B251D30226A78F900F57566 /* CenterVCDelegate.swift in Sources */,
 				1B46042C226E3B0B00E0A2E9 /* DriverAnnotation.swift in Sources */,
 				1B251D2D226A6C1100F57566 /* ContainerVC.swift in Sources */,
-				1B251D2B226A6B4000F57566 /* LeftSidePanelVC.swift in Sources */,
+				1B251D2B226A6B4000F57566 /* MenuViewController.swift in Sources */,
 				1B46042E226E822100E0A2E9 /* PassengerAnnotation.swift in Sources */,
 				1B460424226B9FE100E0A2E9 /* Dataservice.swift in Sources */,
 				1B460430226E8D7A00E0A2E9 /* UIViewControllerExt.swift in Sources */,
 				1B3A3CAC226A4DB000A10F45 /* RoundImageView.swift in Sources */,
-				1BDC86982271F2A1009345A0 /* PickupVC.swift in Sources */,
+				1BDC86982271F2A1009345A0 /* LocationSharedViewController.swift in Sources */,
 				1BDC869A2271F3BC009345A0 /* RoundMapView.swift in Sources */,
 				1B27D6E42270DF82007B4F21 /* UpdateService.swift in Sources */,
 				1B3A6B6121F926C200D3CABD /* AppDelegate.swift in Sources */,

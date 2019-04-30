@@ -1,5 +1,5 @@
 //
-//  HomeVC.swift
+//  MainViewController.swift
 //  Live Bus Time
 //
 //  Created by Kabir on 23/01/2019.
@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import Firebase
 
-class HomeVC: UIViewController, Alertable  {
+class MainViewController: UIViewController, Alertable  {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
@@ -83,7 +83,7 @@ class HomeVC: UIViewController, Alertable  {
                             if let available = available {
                                 if available == true {
                                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                                    let pickupVC = storyboard.instantiateViewController(withIdentifier: "PickupVC") as? PickupVC
+                                    let pickupVC = storyboard.instantiateViewController(withIdentifier: "PickupVC") as? LocationSharedViewController
                                     
                                     pickupVC?.initData(coordinate: CLLocationCoordinate2D(latitude: pickupCoordinateArray[0] as! CLLocationDegrees, longitude: pickupCoordinateArray[1] as! CLLocationDegrees), passengerKey: tripKey)
                                     self.present(pickupVC!, animated: true, completion: nil)
@@ -217,7 +217,7 @@ class HomeVC: UIViewController, Alertable  {
 
 }
 
-extension HomeVC: CLLocationManagerDelegate {
+extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         if status == .authorizedAlways{
@@ -228,7 +228,7 @@ extension HomeVC: CLLocationManagerDelegate {
     }
 }
 
-extension HomeVC: MKMapViewDelegate {
+extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         UpdateService.instance.updateUserLocation(withCoordinate: userLocation.coordinate)
         UpdateService.instance.updateDriverLocation(withCoordinate: userLocation.coordinate)
@@ -455,7 +455,7 @@ extension HomeVC: MKMapViewDelegate {
     }
 }
 
-extension HomeVC : UITextFieldDelegate {
+extension MainViewController : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -561,7 +561,7 @@ extension HomeVC : UITextFieldDelegate {
     }
 }
 
-extension HomeVC : UITableViewDelegate, UITableViewDataSource {
+extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

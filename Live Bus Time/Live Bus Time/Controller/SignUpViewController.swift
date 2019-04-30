@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  SignUpViewController.swift
 //  Live Bus Time
 //
 //  Created by Kabir on 20/04/2019.
@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
+class SignUpViewController: UIViewController, UITextFieldDelegate, Alertable {
     
     
     @IBOutlet weak var emailField: RoundedCornerTextField!

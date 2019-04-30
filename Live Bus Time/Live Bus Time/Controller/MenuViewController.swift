@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LeftSidePanelVC: UIViewController {
+class MenuViewController: UIViewController {
     
     //let currentUserId = Auth.auth().currentUser?.uid
     let appDelegate = AppDelegate.getAppDelegate()
@@ -101,7 +101,7 @@ class LeftSidePanelVC: UIViewController {
     @IBAction func LoginBtnWasPressed(_ sender: Any) {
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? SignUpViewController
             present(loginVC!, animated: true, completion: nil)
         } else {
             do {

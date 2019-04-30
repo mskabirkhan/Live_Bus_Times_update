@@ -1,15 +1,15 @@
 //
-//  PickupVC.swift
+//  LocationSharedViewController.swift
 //  Live Bus Time
 //
-//  Created by Kabir on 25/04/2019.
+//  Created by Kabir on 13/03/2019.
 //  Copyright © 2019 Kabir. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class PickupVC: UIViewController {
+class LocationSharedViewController: UIViewController {
 
     @IBOutlet weak var pickupMapView: RoundMapView!
     
@@ -68,7 +68,7 @@ class PickupVC: UIViewController {
 
 }
 
-extension PickupVC : MKMapViewDelegate {
+extension LocationSharedViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
