@@ -523,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nh-pc-GzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384.80000000000001" y="-404.34782608695656"/>
+            <point key="canvasLocation" x="442" y="-404"/>
         </scene>
         <!--Location Shared View Controller-->
         <scene sceneID="Twa-a9-LoL">
@@ -534,7 +534,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-PJ-FcZ">
-                                <rect key="frame" x="16" y="33" width="43" height="22"/>
+                                <rect key="frame" x="16" y="33" width="43" height="31"/>
                                 <color key="backgroundColor" red="0.93566399810000001" green="0.1591685712" blue="0.1530345082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="c7C-Wj-9mv"/>
@@ -620,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQx-UA-YEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-404"/>
+            <point key="canvasLocation" x="1271" y="-404"/>
         </scene>
     </scenes>
     <resources>

@@ -78,7 +78,7 @@ class MenuViewController: UIViewController {
             }
         })
     }
-    //check the pockup mode enableb with Firebase
+    //check the pickup mode enableb with Firebase
     @IBAction func switchIsOn(_ sender: Any) {
         if pickUpModeSwitch.isOn {
             pickUpModeLbl.text = "Location Enabled"
