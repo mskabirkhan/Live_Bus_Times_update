@@ -18,13 +18,10 @@ class LocationSharedViewController: UIViewController {
     
     var locationPlacemark: MKPlacemark!
 
-    
     var regionRadius : CLLocationDistance = 2000
     var pin : MKPlacemark? = nil
-    
-    
+
     //var currentUserId = Auth.auth().currentUser?.uid
-    
     //var id = Auth.auth().currentUser?.uid
 
     
@@ -91,24 +88,21 @@ extension LocationSharedViewController : MKMapViewDelegate {
     
     func centerMapOnLocation(location : CLLocation) {
         
+        //var userTrackingMode: MKUserTrackingMode {get set}
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-
-        _ = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         pickupMapView.setRegion(coordinateRegion, animated: true)
     }
     
+   
     func dropPinFor(placemark : MKPlacemark) {
-        
         pin = placemark
         
-        for annotation in pickupMapView.annotations
-        {
+        for annotation in pickupMapView.annotations{
             pickupMapView.removeAnnotation(annotation)
         }
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
-        
         pickupMapView.addAnnotation(annotation)
     }
 }

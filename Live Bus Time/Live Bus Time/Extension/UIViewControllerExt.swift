@@ -9,13 +9,10 @@
 import UIKit
 
 extension UIViewController {
-    
     func shouldPresentLoadingView(_ status: Bool) {
-        
         var fadeView: UIView?
         
-        if status == true
-        {
+        if status == true{
             fadeView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
             fadeView?.backgroundColor = UIColor.black
             fadeView?.alpha = 0.0
@@ -33,16 +30,11 @@ extension UIViewController {
             
             fadeView?.fadeTo(alphaValue: 0.7, withDuration: 0.3)
         }
-        else
-        {
-            for subview in view.subviews
-            {
-                if subview.tag == 99
-                {
+        else{
+            for subview in view.subviews{
+                if subview.tag == 99{
                     UIView.animate(withDuration: 0.2, animations: {
-                        
                         subview.alpha = 0.0
-                        
                     }, completion: { (finished) in
                         
                         subview.removeFromSuperview()

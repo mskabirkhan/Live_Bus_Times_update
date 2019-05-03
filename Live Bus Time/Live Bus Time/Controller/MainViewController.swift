@@ -63,7 +63,8 @@ class MainViewController: UIViewController, Alertable  {
 
         
         centerMapOnUserLocation()
-        
+        view.bindtoKeyboard()
+
         self.loadDriverAnnotationsFromFB()
 
         DataService.instance.REF_DRIVERS.observe(.value, with: { (snapshot) in

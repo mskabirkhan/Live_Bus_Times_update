@@ -26,7 +26,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, Alertable {
         
         emailField.delegate = self
         passwordField.delegate = self
-        //view.bindtoKeyboard()
+        view.bindtoKeyboard()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap(sender:)))
         self.view.addGestureRecognizer(tap)
