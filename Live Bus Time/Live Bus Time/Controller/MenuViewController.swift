@@ -34,7 +34,7 @@ class MenuViewController: UIViewController {
         pickUpModeLbl.isHidden = true
         
         
-        observeDriversAndPassengers()
+        observePassengersAndDrivers()
     
         if Auth.auth().currentUser == nil {
             userEmailLbl.text = ""
@@ -51,28 +51,28 @@ class MenuViewController: UIViewController {
     }
     
     //check if its a driver or passenger
-    func observeDriversAndPassengers() {
+    func observePassengersAndDrivers() {
+        
         DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+            //capturing all children of users node, and all objects beneath
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
-                        self.userAccountTypeLbl.text = "PASSENGER"
+                        self.userAccountTypeLbl.text = "Passenger"
                     }
                 }
             }
         })
-        
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
-                        self.userAccountTypeLbl.text = "DRIVER"
+                        self.userAccountTypeLbl.text = "Driver"
                         self.pickUpModeSwitch.isHidden = false
                         
                         let switchStatus = snap.childSnapshot(forPath: "IsPickupModeEnabled").value as! Bool
                         self.pickUpModeSwitch.isOn = switchStatus
                         self.pickUpModeLbl.isHidden = false
-                        
                     }
                 }
             }
