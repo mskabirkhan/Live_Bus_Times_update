@@ -57,20 +57,14 @@ class DataService {
  
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value, with: { (snapshot) in
             
-            if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot]
-            {
-                for driver in driverSnapshot
-                {
-                    if driver.key == key
-                    {
-                        if driver.childSnapshot(forPath: "IsPickupModeEnabled").value as? Bool == true
-                        {
-                            if driver.childSnapshot(forPath: "driverIsOnTrip").value as? Bool == true
-                            {
+            if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                for driver in driverSnapshot{
+                    if driver.key == key{
+                        if driver.childSnapshot(forPath: "IsPickupModeEnabled").value as? Bool == true{
+                            if driver.childSnapshot(forPath: "driverIsOnTrip").value as? Bool == true{
                                 handler(false)
                             }
-                            else
-                            {
+                            else{
                                 handler(true)
                             }
                         }
@@ -79,7 +73,70 @@ class DataService {
             }
         })
     }
+    
+    //this function is gonna if a driver is on a trip v3.2
+    func driverIsOnTrip(driverKey: String, handler: @escaping(_ status: Bool?,_ driverKey: String?, _ tripKey:String?) -> Void) {
+        DataService.instance.REF_DRIVERS.child(driverKey).child("driverIsOnTrip").observe(.value, with: { (driverTripStatusSnapshot) in
+            if let driverTripStatusSnapshot = driverTripStatusSnapshot.value as? Bool {
+                if driverTripStatusSnapshot == true {
+                    DataService.instance.REF_TRIPS.observeSingleEvent(of: .value, with: { (tripSnapshot) in
+                        if let tripSnapshot = tripSnapshot.children.allObjects as? [DataSnapshot] {
+                            for trip in tripSnapshot {
+                                if trip.childSnapshot(forPath: "driverKey").value as? String == driverKey {
+                                    handler(true, driverKey, trip.key)
+                                } else {
+                                    return
+                                }
+                            }
+                        }
+                    })
+                } else {
+                    handler(false, nil, nil)
+                }
+            }
+        })
+    }
+    
+    //this function is gonna if a passenger is on a trip v 3.2
+    func passengerIsOnTrip(passengerKey: String, handler: @escaping(_ status: Bool?, _ driverKey: String?, _ tripKey: String?) -> Void) {
+        DataService.instance.REF_TRIPS.observeSingleEvent(of: .value, with: { (tripSnapshot) in
+            if let tripSnapshot = tripSnapshot.children.allObjects as? [DataSnapshot] {
+                for trip in tripSnapshot {
+                    if trip.key == passengerKey {
+                        if trip.childSnapshot(forPath: "tripIsShared").value as? Bool == true {
+                            let driverKey = trip.childSnapshot(forPath: "driverKey").value as? String
+                            handler(true, driverKey, trip.key)
+                        } else {
+                            handler(false, nil, nil)
+                        }
+                    }
+                }
+            }
+        })
+    }
 
+    //is a user is driver or not v3.2
+    func userIsDriver(userKey: String, handler: @escaping(_ status: Bool) -> Void) {
+        DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value, with: { (driverSnapshot) in
+            if let driverSnapshot = driverSnapshot.children.allObjects as? [DataSnapshot] {
+                for driver in driverSnapshot {
+                    if driver.key == userKey {
+                        handler(true)
+                    } else {
+                        handler(false)
+                    }
+                }
+            }
+        })
+    }
+
+    
+    
+    
+    
+    
+    
+    
 }
 
 

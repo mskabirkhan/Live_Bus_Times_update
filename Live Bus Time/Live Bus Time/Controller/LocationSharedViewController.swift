@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class LocationSharedViewController: UIViewController {
 
@@ -21,7 +22,7 @@ class LocationSharedViewController: UIViewController {
     var regionRadius : CLLocationDistance = 2000
     var pin : MKPlacemark? = nil
 
-    //var currentUserId = Auth.auth().currentUser?.uid
+    var currentUserId = Auth.auth().currentUser?.uid
     //var id = Auth.auth().currentUser?.uid
 
     
@@ -34,6 +35,19 @@ class LocationSharedViewController: UIViewController {
         
         dropPinFor(placemark: locationPlacemark)
         centerMapOnLocation(location: locationPlacemark.location!)
+        DataService.instance.REF_TRIPS.child(passengerKey).observe(.value, with: { (tripSnapshot) in
+            if tripSnapshot.exists() {
+                //check for acceptance
+                //below is in case someone else then this driver accepts the trip first
+                if tripSnapshot.childSnapshot(forPath: "tripIsShared").value as? Bool == true {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                //this is if the customer cancels the trip before the driver can accept
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+
     }
     
     func initData(coordinate: CLLocationCoordinate2D, passengerKey: String) {
@@ -42,9 +56,11 @@ class LocationSharedViewController: UIViewController {
         self.passengerKey = passengerKey
     }
     
-    
+    //location sharing button can be clicked upo request
     @IBAction func locationAcceptTripBtnPressed(_ sender: Any) {
-        
+        UpdateService.instance.acceptTrip(withPassengerKey: passengerKey, forDriverKey: currentUserId!)
+        presentingViewController?.shouldPresentLoadingView(true)
+
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
