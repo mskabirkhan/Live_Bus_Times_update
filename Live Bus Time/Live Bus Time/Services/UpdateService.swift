@@ -65,7 +65,6 @@ class UpdateService {
             
             if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for user in userSnapshot {
-                    
                     if user.key == Auth.auth().currentUser?.uid {
                         
                         if !user.hasChild("userIsDriver") {
