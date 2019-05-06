@@ -11,6 +11,12 @@ import MapKit
 import CoreLocation
 import Firebase
 
+enum AnnotationType {
+    case pickup
+    case destination
+}
+
+
 //
 class MainViewController: UIViewController, Alertable  {
     
@@ -152,12 +158,12 @@ class MainViewController: UIViewController, Alertable  {
                     if let tripSnapshot = tripSnapshot.children.allObjects as? [DataSnapshot] {
                         for trip in tripSnapshot {
                             if trip.childSnapshot(forPath: "driverKey").value as? String == self.currentUserId! {
-                                let pickupCoordinateArray = trip.childSnapshot(forPath: "pickupCoordinate").value as! NSArray
+                                let pickupCoordinateArray = trip.childSnapshot(forPath: "pickupCo ordinate").value as! NSArray
                                 let pickupCoordinate = CLLocationCoordinate2D(latitude: pickupCoordinateArray[0] as! CLLocationDegrees, longitude: pickupCoordinateArray[1] as! CLLocationDegrees)
                                 let pickupPlacemark = MKPlacemark(coordinate: pickupCoordinate)
                                 self.dropPinFor(placemark: pickupPlacemark)
                                 self.searchMapKitForResultsWithPolyline(forOriginMapItem: nil, withDestinationMapItem: MKMapItem(placemark: pickupPlacemark))
-                                //self.setCustomRegion(forAnnotationType: .pickup, withCoordinate: pickupCoordinate)
+                                self.setCustomRegion(forAnnotationType: .pickup, withCoordinate: pickupCoordinate)
                                 //self.actionForButton = .getDirectionsToPassenger
                                 //self.actionBtn.setTitle("GET DIRECTIONS", for: .normal)
                                 //self.setButtonsForDriver(hidden: false)
@@ -192,9 +198,7 @@ class MainViewController: UIViewController, Alertable  {
                 })
             }
         }
-        
         connectUserAndDriverForTrip()
-        
     }
     
     
@@ -248,7 +252,6 @@ class MainViewController: UIViewController, Alertable  {
                             }
                         }
                     }
-                    
                 }
             }
         })
@@ -377,6 +380,38 @@ extension MainViewController: CLLocationManagerDelegate {
             
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        DataService.instance.driverIsOnTrip(driverKey: currentUserId!) { (isOnTrip, driverKey, passengerKey) in
+            if isOnTrip == true {
+                if region.identifier == "pickup" {
+                    self.actionBtn.setTitle("START TRIP", for: .normal)
+                    //self.actionBtn = .startTrip
+                } else if region.identifier == "destination" {
+                    self.cancelBtn.fadeTo(alphaValue: 0.0, withDuration: 0.2)
+                    self.cancelBtn.isHidden = true
+                    self.actionBtn.setTitle("END TRIP", for: .normal)
+                    //self.actionBtn = .endTrip
+                }
+            }
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        DataService.instance.driverIsOnTrip(driverKey: currentUserId!) { (isOnTrip, driverKey, tripKey) in
+            if isOnTrip == true {
+                if region.identifier == "pickup" {
+                    self.actionBtn.setTitle("START TRIP", for: .normal)
+                    self.actionBtn.setTitle("GET DIRECTIONS", for: .normal)
+                } else if region.identifier == "destination" {
+                    //self.actionBtn = .endTrip
+                    self.actionBtn.setTitle("GET DIRECTIONS", for: .normal)
+                }
+            }
+        }
+    }
+    
 }
 
 extension MainViewController: MKMapViewDelegate {
@@ -458,7 +493,6 @@ extension MainViewController: MKMapViewDelegate {
         lineRenderer.lineJoin = .round
         
         shouldPresentLoadingView(false)
-        zoom(toFitAnnotationsFromMapview: self.mapView, forActiveTripWithDriver: false, withKey: nil)
         return lineRenderer
     }
     
@@ -520,13 +554,12 @@ extension MainViewController: MKMapViewDelegate {
         let directions = MKDirections(request: request)
         
         directions.calculate { (response, error) in
-            guard let response = response else {self.showAlert("There has been an unexpected error. Please try again."); return}
+            guard let response = response else {self.showAlert("An unexpected error occurred. Please try again."); return}
             self.route = response.routes[0]
             
             self.mapView.addOverlay(self.route!.polyline)
             
             self.zoom(toFitAnnotationsFromMapview: self.mapView, forActiveTripWithDriver: false, withKey: nil)
-            
             
             let delegate = AppDelegate.getAppDelegate()
             delegate.window?.rootViewController?.shouldPresentLoadingView(false)
@@ -597,6 +630,16 @@ extension MainViewController: MKMapViewDelegate {
             if overlay is MKPolyline {
                 mapView.removeOverlay(overlay)
             }
+        }
+    }
+    
+    func setCustomRegion(forAnnotationType type: AnnotationType, withCoordinate coordinate: CLLocationCoordinate2D) {
+        if type == .pickup {
+            let pickupRegion = CLCircularRegion(center: coordinate, radius: 250, identifier: "pickup")
+            manager?.startMonitoring(for: pickupRegion)
+        } else if type == .destination {
+            let destinationRegion = CLCircularRegion(center: coordinate, radius: 250, identifier: "destination")
+            manager?.startMonitoring(for: destinationRegion)
         }
     }
 }
