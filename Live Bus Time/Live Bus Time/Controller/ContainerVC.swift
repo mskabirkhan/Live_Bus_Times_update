@@ -34,6 +34,7 @@ class ContainerVC: UIViewController {
     var isHidden = false
     let centerPanelExpandedOffset : CGFloat = 160
     var tap : UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initCenter(screen: showVC)
@@ -50,6 +51,8 @@ class ContainerVC: UIViewController {
         }
         
         presentingController = homeVC
+        
+        // Remove controller, so that we won't make several copies and waste resources
         if let con = centerController{
             con.view.removeFromSuperview()
             con.removeFromParent()
@@ -163,7 +166,7 @@ extension ContainerVC : CenterVCDelegate {
         }
         else
         {
-            centerController.view.layer.shadowOpacity = 0
+            centerController.view.layer.shadowOpacity = 0.0
         }
     }
     

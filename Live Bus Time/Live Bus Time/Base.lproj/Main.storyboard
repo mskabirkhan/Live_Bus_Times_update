@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1004" y="-413.3433283358321"/>
+            <point key="canvasLocation" x="-1007" y="-404"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="HEI-ZY-ISx">
@@ -355,9 +355,13 @@
                         <viewLayoutGuide key="safeArea" id="NMZ-IP-Czc"/>
                     </view>
                     <connections>
+                        <outlet property="helpBtn" destination="8KJ-kF-Ft6" id="qwx-AE-smi"/>
                         <outlet property="loginOutBtn" destination="V0o-HL-9by" id="iVY-2N-Mxh"/>
+                        <outlet property="paymentBtn" destination="FDI-2q-36D" id="bYK-hp-J5K"/>
                         <outlet property="pickUpModeLbl" destination="xRF-eC-eGw" id="7bd-Ch-WkB"/>
                         <outlet property="pickUpModeSwitch" destination="zll-he-SvZ" id="8ZL-Ov-lXl"/>
+                        <outlet property="settingBtn" destination="eRh-Rn-Xvd" id="7DZ-Xm-GhP"/>
+                        <outlet property="shiftBtn" destination="3Rb-iu-rDt" id="hiL-DB-CPg"/>
                         <outlet property="userAccountTypeLbl" destination="wTz-G5-coA" id="4qv-Uy-BVI"/>
                         <outlet property="userEmailLbl" destination="z6N-ya-Lhd" id="Grm-Sc-vnD"/>
                         <outlet property="userImageView" destination="SBA-2q-186" id="DhU-sk-JcC"/>
@@ -365,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNA-hU-T7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-364" y="-404.34782608695656"/>
+            <point key="canvasLocation" x="-225" y="-404"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="lpP-mx-cJc">
@@ -547,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nh-pc-GzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="-389"/>
+            <point key="canvasLocation" x="601" y="-404"/>
         </scene>
         <!--Location Shared View Controller-->
         <scene sceneID="Twa-a9-LoL">
@@ -644,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQx-UA-YEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="-404"/>
+            <point key="canvasLocation" x="1393" y="-404"/>
         </scene>
     </scenes>
     <resources>

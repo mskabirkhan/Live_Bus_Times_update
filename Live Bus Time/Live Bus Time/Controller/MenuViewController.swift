@@ -11,7 +11,7 @@ import Firebase
 
 class MenuViewController: UIViewController {
     
-    //let currentUserId = Auth.auth().currentUser?.uid
+    let currentUserId = Auth.auth().currentUser?.uid
     let appDelegate = AppDelegate.getAppDelegate()
 
     @IBOutlet weak var userImageView: RoundImageView!
@@ -21,6 +21,10 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var userAccountTypeLbl: UILabel!
     @IBOutlet weak var loginOutBtn: UIButton!
     
+    @IBOutlet weak var shiftBtn: UIButton!
+    @IBOutlet weak var paymentBtn: UIButton!
+    @IBOutlet weak var settingBtn: UIButton!
+    @IBOutlet weak var helpBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -29,10 +33,13 @@ class MenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         pickUpModeSwitch.isOn = false
         pickUpModeSwitch.isHidden  = true //false in the vd
         pickUpModeLbl.isHidden = true
-        
+        shiftBtn.isHidden = true
+        paymentBtn.isHidden = true
+    
         
         observePassengersAndDrivers()
     
@@ -52,13 +59,13 @@ class MenuViewController: UIViewController {
     
     //check if its a driver or passenger
     func observePassengersAndDrivers() {
-        
         DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
             //capturing all children of users node, and all objects beneath
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
                         self.userAccountTypeLbl.text = "Passenger"
+                        //pickUpModeSwitch
                     }
                 }
             }
@@ -69,8 +76,10 @@ class MenuViewController: UIViewController {
                     if snap.key == Auth.auth().currentUser?.uid {
                         self.userAccountTypeLbl.text = "Driver"
                         self.pickUpModeSwitch.isHidden = false
+                        self.shiftBtn.isHidden = false
+                        self.paymentBtn.isHidden = false
                         
-                        let switchStatus = snap.childSnapshot(forPath: "IsPickupModeEnabled").value as! Bool
+                        let switchStatus = snap.childSnapshot(forPath: "isPickupModeEnabled").value as! Bool
                         self.pickUpModeSwitch.isOn = switchStatus
                         self.pickUpModeLbl.isHidden = false
                     }
@@ -84,17 +93,33 @@ class MenuViewController: UIViewController {
             pickUpModeLbl.text = "Location Enabled"
             if let currentUserId = Auth.auth().currentUser?.uid {
                 appDelegate.MenuContainerVC.toggleLeftPanel()
-                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["IsPickupModeEnabled" : true])
+                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["isPickupModeEnabled" : true])
                 //Have to implement func to updatevalue on driver when logging in, since login by default is pickupmodedisabled.
             }
         } else {
             pickUpModeLbl.text = "Location Disabled"
             if let currentUserId = Auth.auth().currentUser?.uid {
                 appDelegate.MenuContainerVC.toggleLeftPanel()
-                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["IsPickupModeEnabled" : false])
+                DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["isPickupModeEnabled" : false])
             }
         }
     }
+
+    
+    
+//    @IBAction func switchIsOn(_ sender: Any) {
+//        if pickUpModeSwitch.isOn {
+//            pickUpModeLbl.text = "Location Enabled"
+//            appDelegate.MenuContainerVC.toggleLeftPanel()
+//            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["isPickupModeEnabled": true])
+//        } else {
+//            pickUpModeLbl.text = "Location Disabled"
+//            appDelegate.MenuContainerVC.toggleLeftPanel()
+//            DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["isPickupModeEnabled": false])
+//        }
+//    }
+//
+//
     
     
     

@@ -61,29 +61,27 @@ class UpdateService {
     
     
     func updateTripsWithCoordinatesUponRequest() {
-        
-        DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+        DataService.instance.REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
             
-            if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot]
-            {
-                for user in userSnapshot
-                {
-                    if user.key == Auth.auth().currentUser?.uid
-                    {
-                        if !user.hasChild("userIsDriver")
-                        {
-                            if let userDict = user.value as? Dictionary<String, AnyObject>
-                            {
+            if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for user in userSnapshot {
+                    
+                    if user.key == Auth.auth().currentUser?.uid {
+                        
+                        if !user.hasChild("userIsDriver") {
+                            if let userDict = user.value as? Dictionary<String, AnyObject> {
+                                
                                 let pickupArray = userDict["coordinate"] as! NSArray
+                                
                                 let destinationArray = userDict["tripCoordinate"] as! NSArray
                                 
-                                DataService.instance.REF_TRIPS.child(user.key).updateChildValues(["pickupCoordinate" : [pickupArray[0], pickupArray[1]], "destinationcoordinate" : [destinationArray[0], destinationArray[1]], "passengerKey" : user.key, "tripIsShared" : false]) //tripIsAccepted
+                                DataService.instance.REF_TRIPS.child(user.key).updateChildValues(["pickupCoordinate": [pickupArray[0], pickupArray[1]], "destinationCoordinate": [destinationArray[0], destinationArray[1]], "passengerKey": user.key, "tripIsShared": false])
                             }
                         }
                     }
                 }
             }
-        })
+        }
     }
     
     func acceptTrip(withPassengerKey passengerKey: String, forDriverKey driverKey: String) {
