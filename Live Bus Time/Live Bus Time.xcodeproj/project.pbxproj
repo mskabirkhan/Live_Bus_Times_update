@@ -717,7 +717,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 188A499614CA0991449003B6 /* Pods-Live Bus Time.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7SVSLD84U;
 				INFOPLIST_FILE = "Live Bus Time/Info.plist";
@@ -738,7 +737,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46E7A0E43771180E4FC2AE4D /* Pods-Live Bus Time.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7SVSLD84U;
 				INFOPLIST_FILE = "Live Bus Time/Info.plist";

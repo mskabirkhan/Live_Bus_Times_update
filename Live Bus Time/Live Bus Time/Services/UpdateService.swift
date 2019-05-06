@@ -14,7 +14,7 @@ class UpdateService {
     static var instance = UpdateService()
     
     func updateUserLocation(withCoordinate coordinate: CLLocationCoordinate2D) {
-        DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+        DataService.instance.REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
             if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for user in userSnapshot {
                     if user.key == Auth.auth().currentUser?.uid {
@@ -22,11 +22,11 @@ class UpdateService {
                     }
                 }
             }
-        })
+        }
     }
     
     func updateDriverLocation(withCoordinate coordinate: CLLocationCoordinate2D) {
-        DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value, with: { (snapshot) in
+        DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in
             if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for driver in driverSnapshot {
                     if driver.key == Auth.auth().currentUser?.uid {
@@ -36,27 +36,23 @@ class UpdateService {
                     }
                 }
             }
-        })
+        }
     }
     
     func observeDriverTrips(handler : @escaping(_ coordinateDict : Dictionary<String, AnyObject>?) -> Void) {
         
-        DataService.instance.REF_TRIPS.observe(.value, with: { (snapshot) in
+        DataService.instance.REF_TRIPS.observe(.value) { (snapshot) in
             
-            if let tripSnapshot = snapshot.children.allObjects as? [DataSnapshot]
-            {
-                for trip in tripSnapshot
-                {
-                    if trip.hasChild("passengerKey") && trip.hasChild("tripIsShared")
-                    {
-                        if let tripDict = trip.value as? Dictionary<String, AnyObject>
-                        {
+            if let tripSnapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                for trip in tripSnapshot{
+                    if trip.hasChild("passengerKey") && trip.hasChild("tripIsShared"){
+                        if let tripDict = trip.value as? Dictionary<String, AnyObject>{
                             handler(tripDict)
                         }
                     }
                 }
             }
-        })
+        }
     }
     
     

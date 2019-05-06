@@ -8,6 +8,8 @@
 
 import UIKit
 
+//extension for to show the loading view icon while map is loading or searching
+
 extension UIViewController {
     func shouldPresentLoadingView(_ status: Bool) {
         var fadeView: UIView?
@@ -16,6 +18,7 @@ extension UIViewController {
             fadeView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
             fadeView?.backgroundColor = UIColor.black
             fadeView?.alpha = 0.0
+            // Arbitrary number set to tag to identify subview later (for removal)
             fadeView?.tag = 99
             
             let spinner = UIActivityIndicatorView()
