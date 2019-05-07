@@ -137,6 +137,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, Alertable {
 //
 //}
     
+    
+    
+    
     //crerating firebase account
     func createFirebaseAccount(isDriver: Bool, user: Firebase.User) {
         if isDriver {

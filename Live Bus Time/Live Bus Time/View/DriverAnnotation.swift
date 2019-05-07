@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 
+//annotation for driver to show in the display , inherit from NSObject and MKAnnotation
 class DriverAnnotation: NSObject, MKAnnotation {
     dynamic var coordinate: CLLocationCoordinate2D
     var key: String

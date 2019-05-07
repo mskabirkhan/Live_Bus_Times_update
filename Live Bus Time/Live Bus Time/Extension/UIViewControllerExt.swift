@@ -9,7 +9,6 @@
 import UIKit
 
 //extension for to show the loading view icon while map is loading or searching
-
 extension UIViewController {
     func shouldPresentLoadingView(_ status: Bool) {
         var fadeView: UIView?
