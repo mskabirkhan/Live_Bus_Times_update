@@ -662,14 +662,14 @@ extension MainViewController: MKMapViewDelegate {
     }
     
     
-    //is responsible for a ll the search related erro4
+   // is responsible for a ll the search related erro4
     func performSearch() {
         matchingItems.removeAll()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = destinationTextField.text
         request.region = mapView.region
         let search = MKLocalSearch(request: request)
-        
+
         search.start { (response, error) in
             if error != nil
             {
